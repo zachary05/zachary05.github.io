@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-04-27T04:16:36.000Z</updated>
+  <updated>2016-04-27T15:04:46.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -16,25 +16,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>NewStart---郑定龙</title>
+    <title>NewStart Zachary_zl</title>
     <link href="http://zachary05.github.io/2016/04/27/newStart/"/>
     <id>http://zachary05.github.io/2016/04/27/newStart/</id>
     <published>2016-04-27T03:07:34.000Z</published>
-    <updated>2016-04-27T04:16:36.000Z</updated>
+    <updated>2016-04-27T15:04:46.000Z</updated>
     
-    <content type="html">&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;测试高亮 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;sdafsdfasf&quot;&gt;&lt;a href=&quot;#sdafsdfasf&quot; class=&quot;headerlink&quot; title=&quot;sdafsdfasf&quot;&gt;&lt;/a&gt;sdafsdfasf&lt;/h2&gt;&lt;hr&gt;
-&lt;h2 id=&quot;dsafsa&quot;&gt;&lt;a href=&quot;#dsafsa&quot; class=&quot;headerlink&quot; title=&quot;dsafsa&quot;&gt;&lt;/a&gt;dsafsa&lt;/h2&gt;&lt;hr&gt;
+    <content type="html">&lt;h2 id=&quot;This-is-a-Newly-Start-of-my-Personal-Blog&quot;&gt;&lt;a href=&quot;#This-is-a-Newly-Start-of-my-Personal-Blog&quot; class=&quot;headerlink&quot; title=&quot;This is a Newly Start of my Personal Blog&quot;&gt;&lt;/a&gt;This is a Newly Start of my Personal Blog&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt; This Blog at Wed Apr 27 2016 by Zachary.&lt;/p&gt;
+&lt;p&gt;I am a student now.&lt;/p&gt;
+&lt;p&gt;I love computer, though i major in English. strange Isn’t?&lt;/p&gt;
+&lt;p&gt;but it’s ok.&lt;/p&gt;
+&lt;h2 id=&quot;Personal-Information&quot;&gt;&lt;a href=&quot;#Personal-Information&quot; class=&quot;headerlink&quot; title=&quot;Personal Information&quot;&gt;&lt;/a&gt;Personal Information&lt;/h2&gt;&lt;p&gt;FE_Develper&lt;/p&gt;
+&lt;p&gt;Location: Wuhan&lt;/p&gt;
+&lt;h2 id=&quot;Contact&quot;&gt;&lt;a href=&quot;#Contact&quot; class=&quot;headerlink&quot; title=&quot;Contact&quot;&gt;&lt;/a&gt;Contact&lt;/h2&gt;&lt;p&gt;Mail: &lt;a href=&quot;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#x7a;&amp;#104;&amp;#x65;&amp;#110;&amp;#x67;&amp;#x64;&amp;#105;&amp;#110;&amp;#x67;&amp;#108;&amp;#111;&amp;#x6e;&amp;#x67;&amp;#122;&amp;#97;&amp;#x63;&amp;#104;&amp;#97;&amp;#x72;&amp;#x79;&amp;#64;&amp;#x67;&amp;#x6d;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;&gt;&amp;#x7a;&amp;#104;&amp;#x65;&amp;#110;&amp;#x67;&amp;#x64;&amp;#105;&amp;#110;&amp;#x67;&amp;#108;&amp;#111;&amp;#x6e;&amp;#x67;&amp;#122;&amp;#97;&amp;#x63;&amp;#104;&amp;#97;&amp;#x72;&amp;#x79;&amp;#64;&amp;#x67;&amp;#x6d;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;github: &lt;a href=&quot;https://github.com/zachary05w&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;zachary05&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;weibo: &lt;a href=&quot;http://weibo.com/u/3188286320?is_all=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;L_mustcahe&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 </content>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span clas
+      &lt;h2 id=&quot;This-is-a-Newly-Start-of-my-Personal-Blog&quot;&gt;&lt;a href=&quot;#This-is-a-Newly-Start-of-my-Personal-Blog&quot; class=&quot;headerlink&quot; title=&quot;This is a 
     
     </summary>
     
+    
+      <category term="Introduction" scheme="http://zachary05.github.io/tags/Introduction/"/>
     
   </entry>
   
