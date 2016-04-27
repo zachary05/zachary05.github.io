@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/04/27/newStart/</loc>
+    <loc>http://zachary05.github.io/about/index.html</loc>
     
-    <lastmod>2016-04-27T03:11:26.000Z</lastmod>
+    <lastmod>2016-04-27T12:21:15.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/04/27/hello-world/</loc>
+    <loc>http://zachary05.github.io/categories/index.html</loc>
     
-    <lastmod>2016-04-27T03:02:46.000Z</lastmod>
+    <lastmod>2016-04-27T06:56:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zachary05.github.io/tags/index.html</loc>
+    
+    <lastmod>2016-04-27T06:56:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zachary05.github.io/2016/04/27/newStart/</loc>
+    
+    <lastmod>2016-04-27T04:16:36.000Z</lastmod>
     
   </url>
   
