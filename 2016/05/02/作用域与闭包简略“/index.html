@@ -98,7 +98,7 @@
 每个函数都有自己的执行环境。每个执行环境都有一个与之关联的变量对象（环境中定义的所有变量都保存在这个对象中）。全局执行环境是最外围的，在Web浏览器中，被认为是window对象。
 
 当代码在一个环境中执行时，会创建变量对象的一个作用域链，如果这个环境是函数，则将其活动对象作为变量对">
-<meta property="og:updated_time" content="2016-05-16T12:59:12.000Z">
+<meta property="og:updated_time" content="2016-05-16T13:16:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中作用域与闭包">
 <meta name="twitter:description" content="作用域 (Scope)谈到闭包就必然会说到作用域，在JavaScript中，作用域是执行代码的上下文。
@@ -414,6 +414,17 @@
 <figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span> &#123;</span></span><br><span class="line">    <span class="built_in">str</span> = <span class="string">"zachary"</span>;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span><span class="params">()</span> &#123;</span></span><br><span class="line">        console.<span class="built_in">log</span>(<span class="built_in">str</span>);</span><br><span class="line">    &#125;)();</span><br><span class="line">&#125;</span><br><span class="line">a(); <span class="comment">//zachary</span></span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">"zachary"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = a();</span><br><span class="line">c(); <span class="comment">//zachary</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>Reference:</p>
+<ol>
+<li><a href="http://bonsaiden.github.io/JavaScript-Garden/zh/#function" target="_blank" rel="external">JavaScript秘密花园</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions#定义函数(Defining_function" target="_blank" rel="external">MDN</a></li>
+<li><a href="http://jibbering.com/faq/notes/closures/" target="_blank" rel="external">Javascript Closures</a></li>
+<li><a href="https://book.douban.com/subject/25837367/" target="_blank" rel="external">JavaScript启示录</a></li>
+<li><a href="https://book.douban.com/subject/11874748/" target="_blank" rel="external">JavaScript语言精粹</a></li>
+<li><a href="https://book.douban.com/subject/10546125/" target="_blank" rel="external">JavaScript高级程序设计</a></li>
+</ol>
+
       
     </div>
     <div>
