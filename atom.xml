@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-06-15T16:30:03.000Z</updated>
+  <updated>2016-06-19T08:08:24.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -14,6 +14,175 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP请求/TCP协议/三次握手/四次挥手</title>
+    <link href="http://zachary05.github.io/2016/06/19/HTTP%E8%AF%B7%E6%B1%82-TCP%E5%8D%8F%E8%AE%AE-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/"/>
+    <id>http://zachary05.github.io/2016/06/19/HTTP请求-TCP协议-三次握手/</id>
+    <published>2016-06-19T01:08:56.000Z</published>
+    <updated>2016-06-19T08:08:24.000Z</updated>
+    
+    <content type="html">&lt;h4 id=&quot;HTTP请求&quot;&gt;&lt;a href=&quot;#HTTP请求&quot; class=&quot;headerlink&quot; title=&quot;HTTP请求&quot;&gt;&lt;/a&gt;HTTP请求&lt;/h4&gt;&lt;p&gt;HTTP请求一般过程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;http客户端发起请求，创建端口&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;http服务器在端口监听客户端请求&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;http服务器向客户端返回状态和内容&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从输入网站到渲染页面都做了什么🤔：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1.首先浏览器查看自身DNS缓存（查看chrome浏览器NDS缓存：chrome://net-internals/#dns）；&lt;/p&gt;
+&lt;p&gt;2.搜索操作系统自身的DNS缓存（如果浏览器没有找到缓存或缓存失效😮&lt;/p&gt;
+&lt;p&gt;3.读取本地的HOST文件（如果没有找到系统缓存😨&lt;/p&gt;
+&lt;p&gt;4.浏览器发起一个NDS调用（如果本地HOST也没有😰&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;宽带运营商服务器查看本身缓存，若没有则：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;运营商服务器发起一个迭代NDS解析的请求&amp;gt;&amp;gt;&amp;gt;运营商服务器把结果返回操作系统内核同时缓存起来&amp;gt;&amp;gt;&amp;gt;操作系统内核把结果返回浏览器&amp;gt;&amp;gt;&amp;gt;最终浏览器拿到了域名的对应IP地址&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;5.浏览器获取域名对应的IP地址后，发起HTTP“三次握手”：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;浏览器随机端口对服务器TCP请求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP请求通过层层的路由，经过网卡，然后经过TCP/IP协议栈/防火墙过滤&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;6.TCP/IP连接建立起来后，浏览器就可以像服务器发送HTTP请求。&lt;/p&gt;
+&lt;p&gt;7.服务器端接收到了这个请求，根据路径参数，经过后端的一些处理之后，把处理后的一个结果的数据返回给浏览器。这个时候把页面完整的HTML代码返回给浏览器。&lt;/p&gt;
+&lt;p&gt;8.浏览器拿到了网站完整的HTML页面代码，在解析和渲染这个页面时，里面的JS，CSS，图片等都是HTTP请求，要经过上面主要的七步。&lt;/p&gt;
+&lt;p&gt;9.浏览器根据拿到的资源对页面进行渲染。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5 id=&quot;HTTP请求主要方法&quot;&gt;&lt;a href=&quot;#HTTP请求主要方法&quot; class=&quot;headerlink&quot; title=&quot;HTTP请求主要方法&quot;&gt;&lt;/a&gt;HTTP请求主要方法&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;GET(获取，读取)&lt;/li&gt;
+&lt;li&gt;POST(上传，提交)&lt;/li&gt;
+&lt;li&gt;PUT(更新)&lt;/li&gt;
+&lt;li&gt;DELETE(删除)&lt;/li&gt;
+&lt;li&gt;HEAD(向服务器发送指定资源的请求)&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;状态码&quot;&gt;&lt;a href=&quot;#状态码&quot; class=&quot;headerlink&quot; title=&quot;状态码&quot;&gt;&lt;/a&gt;状态码&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;1.. //信息，表示请求已经接收&lt;/li&gt;
+&lt;li&gt;2.. //成功&lt;/li&gt;
+&lt;li&gt;3.. //重定向&lt;/li&gt;
+&lt;li&gt;4.. //客户端错误&lt;/li&gt;
+&lt;li&gt;5.. //服务端错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;More Information: &lt;a href=&quot;https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81#1xx.E6.B6.88.E6.81.AF&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;TCP&quot;&gt;&lt;a href=&quot;#TCP&quot; class=&quot;headerlink&quot; title=&quot;TCP&quot;&gt;&lt;/a&gt;TCP&lt;/h4&gt;&lt;p&gt;(Transmission Control Protocol,传输控制协议)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;TCP是一种面向连接的，可靠的，基于字节流的通讯协议，数据在传输前简历连接，传输完毕后断开连接。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TCP的作用是流量控制，主要是控制数据流的传输。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;客户端在收发数据要使用connect()函数与服务器建立连接，其目的是保证IP地址、端口、物理链路等正确，为数据的传输开辟通道。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TCP请求连接时要传输三个数据包，称&lt;code&gt;三次握手(Three-way Handshaking)&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;  1.‘嗨，哥们，咱两唠唠呗。’&lt;/p&gt;
+&lt;p&gt;  2.’好，咱们可以唠唠。’&lt;/p&gt;
+&lt;p&gt;  3.’那行，咱们开始唠了。’&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;TCP数据结构&quot;&gt;&lt;a href=&quot;#TCP数据结构&quot; class=&quot;headerlink&quot; title=&quot;TCP数据结构&quot;&gt;&lt;/a&gt;TCP数据结构&lt;/h4&gt;&lt;p&gt;首先，来看一看TCP数据结构（如图）：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/TCP%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.jpg&quot; alt=&quot;TCP数据结构&quot;&gt;&lt;/p&gt;
+&lt;p&gt;来解释下，主要就是看灰色阴影部分啦：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;序号Seq(Sequence Number):用来表示从计算机A到B的数据包序号，计算机发送数据时对此进行标记。&lt;/li&gt;
+&lt;li&gt;确认号Ack(Acknowledge Number):客户端和服务端都可以发送，Ack = Seq + 1.&lt;/li&gt;
+&lt;li&gt;标志位：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;URG(urgent pointer)&lt;/code&gt;:紧急指针有效:[标志紧急位置]&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ACK(acknowledge)&lt;/code&gt;:确认序号有效&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PSH(push)&lt;/code&gt;:推标志：[接受端不将该数据进行队列处理，主要用于elnet 或 rlogin 等交互模式的连接时]&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RST(reset)&lt;/code&gt;:复位标志: [用于复位相应的TCP连接]&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SYN(synchronous)&lt;/code&gt;:建立一个新连接&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FIN(finish)&lt;/code&gt;:断开一个连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;三次握手&quot;&gt;&lt;a href=&quot;#三次握手&quot; class=&quot;headerlink&quot; title=&quot;三次握手&quot;&gt;&lt;/a&gt;三次握手&lt;/h4&gt;&lt;p&gt;接下来就是三次握手了（如图）：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg&quot; alt=&quot;三次握手&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;看了之后是不是我表示很懵逼，我个人粗浅的理解是：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;1.客户端调用`socket()`函数后，没有开始建立连接，处于CLOSED状态；而服务器调用`listen()`函数后，进入LISTEN状态并开始监听客户端的请求。
+
+2.客户端调用`connect()`函数后，发送SYN包到服务器，生成随机数字Seq:1000，传给服务器，然后自身进入SYN_SEND状态。
+
+3.服务器接收到了请求后，确认SYN包并自己生成SYN包，即SYN+ACK,将生成随机数Seq:2000,同时将客户端传来的1000+1=1001作为Ack返回给客户端，进入SYN-RECV状态
+
+4.客户端接收到数据包后查看Ack是否是1001，是的就连接成功。然后，客户端将服务器传来的2000+1作为Ack传回服务器，进入ESTABLISHED状态。
+
+5.服务器接收到数据包，查看Ack是否是2001,是的就成功，进入ESTABLISHED状态。
+
+6.客户端与服务器都进入ESTALISHED状态，连接建立成功，很开心可以收发数据了。
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;是不是还是很懵逼，我换个通俗的例子：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;1.身为特务的你在日本执行机密行动，而你的老板在中国，这个时候你要发消息给你老板。
+
+2.你联系到了老板，但是你们互相不确定是否是对方，毕竟相隔万里，但是你们有一个类似‘暗号’的方式：
+
+    1.首先，你得发个随机数字给你老板。
+
+    2.老板得回你这个数字+1，同时老板发个数字给你。
+
+    3.这时，你收到老板的回馈，并把老板发来的数字+1，发给老板。
+
+3.这样，通过这种方式，你们彼此就确定了是对方，很开心就可以进行密谈了。
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;四次挥手&quot;&gt;&lt;a href=&quot;#四次挥手&quot; class=&quot;headerlink&quot; title=&quot;四次挥手&quot;&gt;&lt;/a&gt;四次挥手&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png&quot; alt=&quot;四次挥手&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;断开连接可以是Client端，也可以是Server端。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;假设Client端发起中断请求，就先发送FIN报文&amp;gt;&amp;gt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;Server端接收到FIN报文，发送Ack给Client端，告诉它已经知道了终止请求。但如果数据没有发送完成，则不必关闭Socket，可以继续发送数据&amp;gt;&amp;gt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;这个时候Client端进入FIN_WAIT状态，等待Server端继续发送数据&amp;gt;&amp;gt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;当Server端数据发送完毕，则向Client端发送FIN报文，告诉它数据发送完毕，可以关闭连接&amp;gt;&amp;gt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;Client端收到FIN，便知道可以断开连接了，但它不相信网络所以发送Ack进入TIME_WAIT状态，等待&lt;a href=&quot;http://blog.csdn.net/xiaofei0859/article/details/6044694&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2MSL&lt;/a&gt;后没有收到回复的话，则证明Server端已经正常关闭&amp;gt;&amp;gt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;最后，Client端也关闭连接，TCP连接就已经完全关闭了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我个人的理解是：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;1.打比方你要和女朋友分手，你给女朋友发短信说“咱们分手吧” &amp;gt;&amp;gt;&amp;gt;
+2.女朋友收到信息之后，发给你信息说“我知道了，不过我要想想” &amp;gt;&amp;gt;&amp;gt;
+3.这个时候，你就等着，直到女朋友给你信息说“好的，我们分手吧” &amp;gt;&amp;gt;&amp;gt;
+4.你收到了信息之后，你就发个信息确认一下“我们已经分手了是吧” &amp;gt;&amp;gt;&amp;gt;
+5.这个时候，你就等着，等啊等啊，没等到回复，你就知道你们已经分手了 &amp;gt;&amp;gt;&amp;gt;
+6.分手结束。[真是个悲伤的故事😭]
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;p&gt;完整的请求连接图示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/%E5%AE%8C%E6%95%B4%E7%9A%84HTTP%E8%AF%B7%E6%B1%82%E8%BF%9E%E6%8E%A5.gif&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;MORE READINGS:&lt;/p&gt;
+&lt;p&gt;1.&lt;a href=&quot;http://blog.csdn.net/dlutbrucezhang/article/details/8577810http://blog.csdn.net/dlutbrucezhang/article/details/8577810&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Socket通信原理和实践&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href=&quot;http://hackerxu.com/2014/11/16/TCP.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TCP三次握手和四次挥手&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3.&lt;a href=&quot;http://www.nowcoder.com/discuss/1778&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TCP的三次握手，四次挥手&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4.&lt;a href=&quot;https://yq.aliyun.com/articles/9112://&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;this_is_bill&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;HTTP请求&quot;&gt;&lt;a href=&quot;#HTTP请求&quot; class=&quot;headerlink&quot; title=&quot;HTTP请求&quot;&gt;&lt;/a&gt;HTTP请求&lt;/h4&gt;&lt;p&gt;HTTP请求一般过程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;http客户端发起请求，创建端口&lt;/p&gt;
+&lt;/li&gt;
+    
+    </summary>
+    
+    
+      <category term="net" scheme="http://zachary05.github.io/tags/net/"/>
+    
+  </entry>
   
   <entry>
     <title>网站优化</title>
@@ -70,7 +239,7 @@
     <link href="http://zachary05.github.io/2016/05/02/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E9%97%AD%E5%8C%85%E7%AE%80%E7%95%A5%E2%80%9C/"/>
     <id>http://zachary05.github.io/2016/05/02/作用域与闭包简略“/</id>
     <published>2016-05-01T16:31:49.000Z</published>
-    <updated>2016-05-16T13:16:32.000Z</updated>
+    <updated>2016-06-19T01:28:18.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;作用域-Scope&quot;&gt;&lt;a href=&quot;#作用域-Scope&quot; class=&quot;headerlink&quot; title=&quot;作用域 (Scope)&quot;&gt;&lt;/a&gt;作用域 (Scope)&lt;/h2&gt;&lt;p&gt;谈到闭包就必然会说到作用域，在JavaScript中，作用域是执行代码的上下文。&lt;/p&gt;
 &lt;p&gt;相关概念：&lt;/p&gt;
@@ -109,7 +278,7 @@
 &lt;hr&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;a&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; str = &lt;span class=&quot;string&quot;&gt;&quot;zachary&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; c = a();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c(); &lt;span class=&quot;comment&quot;&gt;//zachary&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;hr&gt;
-&lt;p&gt;Reference:&lt;/p&gt;
+&lt;p&gt;References:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;http://bonsaiden.github.io/JavaScript-Garden/zh/#function&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript秘密花园&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions#定义函数(Defining_function&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
