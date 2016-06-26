@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-06-19T08:08:24.000Z</updated>
+  <updated>2016-06-26T04:05:18.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式</title>
+    <link href="http://zachary05.github.io/2016/06/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://zachary05.github.io/2016/06/26/正则表达式/</id>
+    <published>2016-06-26T03:59:41.000Z</published>
+    <updated>2016-06-26T04:05:18.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;正则表达式-RegExp&quot;&gt;&lt;a href=&quot;#正则表达式-RegExp&quot; class=&quot;headerlink&quot; title=&quot;正则表达式(RegExp)&quot;&gt;&lt;/a&gt;正则表达式(RegExp)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt;除换行符意外的任意字符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;*&lt;/code&gt;重复使用任意次数(&amp;gt;= 0) &lt;code&gt;*?&lt;/code&gt; 重复任意次数但尽可能少&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;+&lt;/code&gt;重复一次或者多次(&amp;gt;= 1) &lt;code&gt;+?&lt;/code&gt; 重复一次或更多次但尽可能少&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;?&lt;/code&gt;重复零次或者一次(0 | 1)  &lt;code&gt;??&lt;/code&gt; 重复零次或者一次但尽可能少&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n}&lt;/code&gt;重复n次 &lt;code&gt;{n}?&lt;/code&gt; 重复n次但尽可能少&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n,}&lt;/code&gt;重复n次或者更多次&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n,m}&lt;/code&gt;重复n到m次 &lt;code&gt;{n,m}?&lt;/code&gt; 重复n到m次但尽可能少&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[\b]&lt;/code&gt;匹配一个退格&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\b&lt;/code&gt;&lt;strong&gt;单词&lt;/strong&gt;开头或者结尾，&lt;strong&gt;单词&lt;/strong&gt;的分界线 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\d&lt;/code&gt;匹配一位数字；如座机号: &lt;code&gt;/0\d{2}-\d{8}/&lt;/code&gt;; &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s&lt;/code&gt;匹配任意的空格 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\w&lt;/code&gt;匹配字母或数字或下划线或汉字 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\B&lt;/code&gt;匹配不是单词开头或者结束的位置 &lt;code&gt;如：/\B../&lt;/code&gt;会匹配“boost”中的”oo”&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\D&lt;/code&gt;匹配任意不是数字的字符 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\S&lt;/code&gt;匹配任意不是空白符的字符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\W&lt;/code&gt;匹配任意不是字母，数字，下划线，汉字的字符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;^&lt;/code&gt;匹配&lt;strong&gt;字符串&lt;/strong&gt;的开始&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$&lt;/code&gt;匹配&lt;strong&gt;字符串&lt;/strong&gt;的结束&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[aeiou]&lt;/code&gt;匹配任何一个[]内的字符；如:&lt;code&gt;[.?!]&lt;/code&gt;匹配标点(.或?或!)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[0-9]&lt;/code&gt;与&lt;code&gt;\b&lt;/code&gt;一样，匹配一位数字(范围)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[a-z0-9A-Z_]&lt;/code&gt;与&lt;code&gt;\w&lt;/code&gt;一样&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[^x]&lt;/code&gt;匹配除了x意外的任意字符 &lt;code&gt;如：[^aeiou]&lt;/code&gt;匹配除了aeiou之外的任意字符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;x|y&lt;/code&gt;匹配x或者y&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(exp)&lt;/code&gt;匹配exp，捕获的文本到自动命名的组里 &lt;code&gt;如匹配一个IP:/((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}\1/&lt;/code&gt;； \1第一组&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(?:exp)&lt;/code&gt;匹配exp，不捕获匹配的文本，也不给此分组匹配组号（剥夺一个分组对组号的分配）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(?&amp;lt;name&amp;gt;exp)&lt;/code&gt;匹配exp，捕获文本到名称为name的组里，也可以写成&lt;code&gt;(?&amp;#39;name&amp;#39;exp)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(?=exp)&lt;/code&gt;匹配exp之前的位置 &lt;code&gt;如：/\b\w+(?=ing)\b/&lt;/code&gt;匹配ing结尾的词，像dancing里的ing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(?&amp;lt;=exp)&lt;/code&gt;匹配exp之后的位置 &lt;code&gt;如：/\b(?&amp;lt;=\bre)\b/&lt;/code&gt;匹配re之后的部分，想reading里的ading&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(?#comment)&lt;/code&gt;包含注释 &lt;code&gt;如对上面的IP表达式做注释：2[0-4])\d(?#200-249)|25[0-5](?#250-255|[01]?\d\d?(?#0-199)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;贪婪匹配 例 aabab中 &lt;code&gt;a.*b&lt;/code&gt; =&amp;gt; &lt;code&gt;aabab&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;懒惰匹配 例 aabab中 &lt;code&gt;a.*?&lt;/code&gt; =&amp;gt; &lt;code&gt;aab&lt;/code&gt;或者&lt;code&gt;ab&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\n&lt;/code&gt;换行符 匹配包括&lt;code&gt;\n&lt;/code&gt;之内的任意字符&lt;code&gt;[\s\S]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\r&lt;/code&gt;回车&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\f&lt;/code&gt;换页符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\t&lt;/code&gt;水平制表符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\v&lt;/code&gt;垂直制表符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Further Information:&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MDN&lt;/a&gt; &lt;a href=&quot;http://www.jianshu.com/p/e7bb97218946&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;20个正则表达式&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;正则表达式-RegExp&quot;&gt;&lt;a href=&quot;#正则表达式-RegExp&quot; class=&quot;headerlink&quot; title=&quot;正则表达式(RegExp)&quot;&gt;&lt;/a&gt;正则表达式(RegExp)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt;除换行符意外的任
+    
+    </summary>
+    
+    
+      <category term="正则表达式" scheme="http://zachary05.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>HTTP请求/TCP协议/三次握手/四次挥手</title>
