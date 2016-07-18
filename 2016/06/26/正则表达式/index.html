@@ -83,36 +83,36 @@
 
 
 <meta name="description" content="正则表达式(RegExp)
-.除换行符意外的任意字符
+.除换行符和其他Unicode行终止符之外的任意字符
 *重复使用任意次数(&amp;gt;= 0) *? 重复任意次数但尽可能少
 +重复一次或者多次(&amp;gt;= 1) +? 重复一次或更多次但尽可能少
 ?重复零次或者一次(0 | 1)  ?? 重复零次或者一次但尽可能少
 {n}重复n次 {n}? 重复n次但尽可能少
 {n,}重复n次或者更多次
-{n,m}重复n到m次 {n,m}? 重复n到m次但尽可能少">
+{n,m}重复n到m次 {n,m}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式">
 <meta property="og:url" content="http://zachary05.github.io/2016/06/26/正则表达式/index.html">
 <meta property="og:site_name" content="Zachary zl">
 <meta property="og:description" content="正则表达式(RegExp)
-.除换行符意外的任意字符
+.除换行符和其他Unicode行终止符之外的任意字符
 *重复使用任意次数(&amp;gt;= 0) *? 重复任意次数但尽可能少
 +重复一次或者多次(&amp;gt;= 1) +? 重复一次或更多次但尽可能少
 ?重复零次或者一次(0 | 1)  ?? 重复零次或者一次但尽可能少
 {n}重复n次 {n}? 重复n次但尽可能少
 {n,}重复n次或者更多次
-{n,m}重复n到m次 {n,m}? 重复n到m次但尽可能少">
-<meta property="og:updated_time" content="2016-06-26T04:05:18.000Z">
+{n,m}重复n到m次 {n,m}">
+<meta property="og:updated_time" content="2016-07-03T23:20:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式(RegExp)
-.除换行符意外的任意字符
+.除换行符和其他Unicode行终止符之外的任意字符
 *重复使用任意次数(&amp;gt;= 0) *? 重复任意次数但尽可能少
 +重复一次或者多次(&amp;gt;= 1) +? 重复一次或更多次但尽可能少
 ?重复零次或者一次(0 | 1)  ?? 重复零次或者一次但尽可能少
 {n}重复n次 {n}? 重复n次但尽可能少
 {n,}重复n次或者更多次
-{n,m}重复n到m次 {n,m}? 重复n到m次但尽可能少">
+{n,m}重复n到m次 {n,m}">
 
 
 
@@ -366,7 +366,7 @@
 
       
         <h3 id="正则表达式-RegExp"><a href="#正则表达式-RegExp" class="headerlink" title="正则表达式(RegExp)"></a>正则表达式(RegExp)</h3><ul>
-<li><code>.</code>除换行符意外的任意字符</li>
+<li><code>.</code>除换行符和其他Unicode行终止符之外的任意字符</li>
 <li><code>*</code>重复使用任意次数(&gt;= 0) <code>*?</code> 重复任意次数但尽可能少</li>
 <li><code>+</code>重复一次或者多次(&gt;= 1) <code>+?</code> 重复一次或更多次但尽可能少</li>
 <li><code>?</code>重复零次或者一次(0 | 1)  <code>??</code> 重复零次或者一次但尽可能少</li>
@@ -376,7 +376,7 @@
 <li><code>[\b]</code>匹配一个退格</li>
 <li><code>\b</code><strong>单词</strong>开头或者结尾，<strong>单词</strong>的分界线 </li>
 <li><code>\d</code>匹配一位数字；如座机号: <code>/0\d{2}-\d{8}/</code>; </li>
-<li><code>s</code>匹配任意的空格 </li>
+<li><code>\s</code>匹配任意的空格 </li>
 <li><code>\w</code>匹配字母或数字或下划线或汉字 </li>
 <li><code>\B</code>匹配不是单词开头或者结束的位置 <code>如：/\B../</code>会匹配“boost”中的”oo”</li>
 <li><code>\D</code>匹配任意不是数字的字符 </li>
@@ -389,7 +389,7 @@
 <li><code>[a-z0-9A-Z_]</code>与<code>\w</code>一样</li>
 <li><code>[^x]</code>匹配除了x意外的任意字符 <code>如：[^aeiou]</code>匹配除了aeiou之外的任意字符</li>
 <li><code>x|y</code>匹配x或者y</li>
-<li><code>(exp)</code>匹配exp，捕获的文本到自动命名的组里 <code>如匹配一个IP:/((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}\1/</code>； \1第一组</li>
+<li><code>(exp)</code>匹配exp，捕获的文本到自动命名的组里 <code>如匹配一个IP:/((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}\1/</code>； \1第一组,他的位置是参与计数的左括号的位置。</li>
 <li><code>(?:exp)</code>匹配exp，不捕获匹配的文本，也不给此分组匹配组号（剥夺一个分组对组号的分配）</li>
 <li><code>(?&lt;name&gt;exp)</code>匹配exp，捕获文本到名称为name的组里，也可以写成<code>(?&#39;name&#39;exp)</code></li>
 <li><code>(?=exp)</code>匹配exp之前的位置 <code>如：/\b\w+(?=ing)\b/</code>匹配ing结尾的词，像dancing里的ing</li>
@@ -539,7 +539,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -556,7 +556,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

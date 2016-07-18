@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-06-28T13:41:33.000Z</updated>
+  <updated>2016-07-18T15:06:48.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -14,6 +14,117 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ajax学习笔记</title>
+    <link href="http://zachary05.github.io/2016/07/18/Ajax%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://zachary05.github.io/2016/07/18/Ajax学习笔记/</id>
+    <published>2016-07-18T14:40:29.000Z</published>
+    <updated>2016-07-18T15:06:48.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;AJAX是一种无须重新加载整个网页的情况下，能够更新部分网页的技术。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;听起来挺酷，因为我知道，网页只有刷新才会呈现新的内容，但是Ajax的好处就是不用去刷新网页，就可以更新网站的局部内容。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;XMLHttpRequest对象（XMLHttpRequest是Ajax的基础）&quot;&gt;&lt;a href=&quot;#XMLHttpRequest对象（XMLHttpRequest是Ajax的基础）&quot; class=&quot;headerlink&quot; title=&quot;XMLHttpRequest对象（XMLHttpRequest是Ajax的基础）&quot;&gt;&lt;/a&gt;XMLHttpRequest对象（XMLHttpRequest是Ajax的基础）&lt;/h4&gt;&lt;p&gt;所有现代浏览器都支持&lt;code&gt;XMLHttpRequest&lt;/code&gt;对象（IE5 IE6 使用ActiveXObject)。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;XMLHttpRequest&lt;/code&gt;的作用：用于后台 [浏览器中的脚本(客户端)] 与服务器交换数据。这个对象充当着浏览器中中间人的角色。以往的请求都是由浏览器发出，而Javascript通过这个对象可以自己发送请求，同时也自己处理响应。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;创建XMlHttpRequest对象&quot;&gt;&lt;a href=&quot;#创建XMlHttpRequest对象&quot; class=&quot;headerlink&quot; title=&quot;创建XMlHttpRequest对象&quot;&gt;&lt;/a&gt;创建XMlHttpRequest对象&lt;/h4&gt;&lt;p&gt;所有现代浏览器均内置&lt;code&gt;XMLHttpRequest&lt;/code&gt;对象&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var request = new XMLHttpRequest();&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;但，IE，你懂得，所以咱们得这样获取：（&lt;code&gt;ActiveXObject&lt;/code&gt;是针对IE的）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if(window.XMLHttpRequest){
+    var request = new XMLHttpRequest();
+}else{
+    var request = new ActiveXOject(&amp;apos;Microsoft.XMLHTTP);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;或者可以写一个函数当做脚本好了：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function getHTTPObject() {
+  if (typeof XMLHttpRequest == &amp;quot;undefined&amp;quot;) {
+        XMLHttpRequest = function () {
+          try {return new ActiveXObject(&amp;quot;Msxml2.XMLHTTP.6.0&amp;quot;);}
+          catch (e) { }
+          try { return new ActiveXObject(&amp;quot;Msxml2.XMLHTTP.3.0&amp;quot;); }
+          catch (e) { }
+          try { return new ActiveXObject(&amp;quot;Msxml2.XMLHTTP&amp;quot;); }
+          catch (e) { }
+        }
+      }
+  return new XMLHttpRequest();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;Ajax-向服务器发送请求&quot;&gt;&lt;a href=&quot;#Ajax-向服务器发送请求&quot; class=&quot;headerlink&quot; title=&quot;Ajax 向服务器发送请求&quot;&gt;&lt;/a&gt;Ajax 向服务器发送请求&lt;/h4&gt;&lt;p&gt;主要使用&lt;code&gt;XMLHttpRequest&lt;/code&gt;对象的&lt;strong&gt;&lt;code&gt;open()&lt;/code&gt;&lt;/strong&gt;和&lt;strong&gt;&lt;code&gt;sent()&lt;/code&gt;&lt;/strong&gt;方法。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;request.open(method, url, async);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;解释：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;method&lt;/code&gt;&lt;/strong&gt;：请求的类型：GET/POST&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;url&lt;/code&gt;&lt;/strong&gt;：文件在服务器上的位置，该文件可以是任何类型，.txt/.xml/.asp/.php&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;async&lt;/code&gt;&lt;/strong&gt;：true（异步）或者false（同步）。XMLHttpRequest对象如果要使用AJAX，open()方法的async参数必须设为true.    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//当请求为异步时，onreadystatechange事件中的就绪状态执行的函数
+
+request.onreadystatechange = function(){
+if(request.readyState == 4 &amp;amp;&amp;amp; request.status == 200){
+        doing something...
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;request.send(string);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;解释：&lt;br&gt;将请求发送到服务器&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;string&lt;/code&gt;：仅用于POST请求。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;Ajax-onreadystatechange事件&quot;&gt;&lt;a href=&quot;#Ajax-onreadystatechange事件&quot; class=&quot;headerlink&quot; title=&quot;Ajax - onreadystatechange事件&quot;&gt;&lt;/a&gt;Ajax - onreadystatechange事件&lt;/h4&gt;&lt;p&gt;请求发送到服务器之后，那么就会有基于响应的任务。并且有两个属性让我们知道请求怎么样了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;readyState&lt;/code&gt;和 &lt;code&gt;status&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;每次&lt;code&gt;readyState&lt;/code&gt;改变时，都会调用&lt;code&gt;onreadystatechange&lt;/code&gt;事件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;readyState属性&lt;/code&gt;有5个值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0：请求未初始化&lt;/li&gt;
+&lt;li&gt;1：服务器已经建立连接&lt;/li&gt;
+&lt;li&gt;2：请求已接收&lt;/li&gt;
+&lt;li&gt;3：请求已处理&lt;/li&gt;
+&lt;li&gt;4：请求已完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;status属性&lt;/code&gt;的值有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;200：’OK’表明成功&lt;/li&gt;
+&lt;li&gt;301：Moved Permanently, 永久移动&lt;/li&gt;
+&lt;li&gt;302：Move temporarily, 暂时移动&lt;/li&gt;
+&lt;li&gt;304：Not Modified, 未修改&lt;/li&gt;
+&lt;li&gt;307：Temporary Redirect, 暂时重定向&lt;/li&gt;
+&lt;li&gt;401：Unauthorised, 未授权&lt;/li&gt;
+&lt;li&gt;403：Forbidden, 禁止访问&lt;/li&gt;
+&lt;li&gt;404：Not Found, 未找到页面&lt;/li&gt;
+&lt;li&gt;500：Internal Server Error, 服务器发生错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;基本上之后&lt;code&gt;2XX&lt;/code&gt;,和&lt;code&gt;304&lt;/code&gt;的状态码表示服务器返回正常。&lt;/p&gt;
+&lt;p&gt;所以一般看&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;request.readyState == 4 &amp;amp;&amp;amp; request.status == 200 才表明请求成功了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;statusText属性&lt;/code&gt;是只读值，返回一个字符串，表明服务器发送的状态提示，如“200 OK”.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;Ajax响应&quot;&gt;&lt;a href=&quot;#Ajax响应&quot; class=&quot;headerlink&quot; title=&quot;Ajax响应&quot;&gt;&lt;/a&gt;Ajax响应&lt;/h4&gt;&lt;p&gt;竟然你请求了数据，那么服务器就会有响应回来的数据。&lt;/p&gt;
+&lt;p&gt;获取服务器的响应，要使用&lt;code&gt;XMLHttpRequest&lt;/code&gt;对象的&lt;code&gt;responseText&lt;/code&gt;属性或者&lt;code&gt;responseXM&lt;/code&gt;L属性。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;responseText : 获取字符串形式的响应数据&lt;/p&gt;
+&lt;p&gt;responseXML : 获取XML形式的响应数据&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;响应成功后，我们就可以用服务器返回来的&lt;code&gt;responseText/responseXML&lt;/code&gt;数据进行处理，显示给用户看。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;AJAX是一种无须重新加载整个网页的情况下，能够更新部分网页的技术。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;听起来挺酷，因为我知道，网页只有刷新才会呈现新的内容，但是Ajax的好处就是不用去刷新网页，就可以更新网站的局部内容。&lt;/p&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+    
+      <category term="Ajax" scheme="http://zachary05.github.io/tags/Ajax/"/>
+    
+  </entry>
   
   <entry>
     <title>Git 基本用法</title>
@@ -237,10 +348,10 @@ $ cd fileA //进入当前文件夹
     <link href="http://zachary05.github.io/2016/06/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     <id>http://zachary05.github.io/2016/06/26/正则表达式/</id>
     <published>2016-06-26T03:59:41.000Z</published>
-    <updated>2016-06-26T04:05:18.000Z</updated>
+    <updated>2016-07-03T23:20:38.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;正则表达式-RegExp&quot;&gt;&lt;a href=&quot;#正则表达式-RegExp&quot; class=&quot;headerlink&quot; title=&quot;正则表达式(RegExp)&quot;&gt;&lt;/a&gt;正则表达式(RegExp)&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.&lt;/code&gt;除换行符意外的任意字符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt;除换行符和其他Unicode行终止符之外的任意字符&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;*&lt;/code&gt;重复使用任意次数(&amp;gt;= 0) &lt;code&gt;*?&lt;/code&gt; 重复任意次数但尽可能少&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;+&lt;/code&gt;重复一次或者多次(&amp;gt;= 1) &lt;code&gt;+?&lt;/code&gt; 重复一次或更多次但尽可能少&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;?&lt;/code&gt;重复零次或者一次(0 | 1)  &lt;code&gt;??&lt;/code&gt; 重复零次或者一次但尽可能少&lt;/li&gt;
@@ -250,7 +361,7 @@ $ cd fileA //进入当前文件夹
 &lt;li&gt;&lt;code&gt;[\b]&lt;/code&gt;匹配一个退格&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\b&lt;/code&gt;&lt;strong&gt;单词&lt;/strong&gt;开头或者结尾，&lt;strong&gt;单词&lt;/strong&gt;的分界线 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\d&lt;/code&gt;匹配一位数字；如座机号: &lt;code&gt;/0\d{2}-\d{8}/&lt;/code&gt;; &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;s&lt;/code&gt;匹配任意的空格 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\s&lt;/code&gt;匹配任意的空格 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\w&lt;/code&gt;匹配字母或数字或下划线或汉字 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\B&lt;/code&gt;匹配不是单词开头或者结束的位置 &lt;code&gt;如：/\B../&lt;/code&gt;会匹配“boost”中的”oo”&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\D&lt;/code&gt;匹配任意不是数字的字符 &lt;/li&gt;
@@ -263,7 +374,7 @@ $ cd fileA //进入当前文件夹
 &lt;li&gt;&lt;code&gt;[a-z0-9A-Z_]&lt;/code&gt;与&lt;code&gt;\w&lt;/code&gt;一样&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[^x]&lt;/code&gt;匹配除了x意外的任意字符 &lt;code&gt;如：[^aeiou]&lt;/code&gt;匹配除了aeiou之外的任意字符&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;x|y&lt;/code&gt;匹配x或者y&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;(exp)&lt;/code&gt;匹配exp，捕获的文本到自动命名的组里 &lt;code&gt;如匹配一个IP:/((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}\1/&lt;/code&gt;； \1第一组&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(exp)&lt;/code&gt;匹配exp，捕获的文本到自动命名的组里 &lt;code&gt;如匹配一个IP:/((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}\1/&lt;/code&gt;； \1第一组,他的位置是参与计数的左括号的位置。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;(?:exp)&lt;/code&gt;匹配exp，不捕获匹配的文本，也不给此分组匹配组号（剥夺一个分组对组号的分配）&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;(?&amp;lt;name&amp;gt;exp)&lt;/code&gt;匹配exp，捕获文本到名称为name的组里，也可以写成&lt;code&gt;(?&amp;#39;name&amp;#39;exp)&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;(?=exp)&lt;/code&gt;匹配exp之前的位置 &lt;code&gt;如：/\b\w+(?=ing)\b/&lt;/code&gt;匹配ing结尾的词，像dancing里的ing&lt;/li&gt;
@@ -286,7 +397,7 @@ $ cd fileA //进入当前文件夹
     <summary type="html">
     
       &lt;h3 id=&quot;正则表达式-RegExp&quot;&gt;&lt;a href=&quot;#正则表达式-RegExp&quot; class=&quot;headerlink&quot; title=&quot;正则表达式(RegExp)&quot;&gt;&lt;/a&gt;正则表达式(RegExp)&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.&lt;/code&gt;除换行符意外的任
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt;除换行符和其他U
     
     </summary>
     
@@ -469,7 +580,7 @@ $ cd fileA //进入当前文件夹
     <link href="http://zachary05.github.io/2016/06/16/%E7%BD%91%E7%AB%99%E4%BC%98%E5%8C%96/"/>
     <id>http://zachary05.github.io/2016/06/16/网站优化/</id>
     <published>2016-06-15T16:29:11.000Z</published>
-    <updated>2016-06-15T16:30:03.000Z</updated>
+    <updated>2016-07-15T09:10:45.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;网站优化&quot;&gt;&lt;a href=&quot;#网站优化&quot; class=&quot;headerlink&quot; title=&quot;网站优化&quot;&gt;&lt;/a&gt;网站优化&lt;/h3&gt;&lt;h4 id=&quot;1-Optimize-pics&quot;&gt;&lt;a href=&quot;#1-Optimize-pics&quot; class=&quot;headerlink&quot; title=&quot;1.Optimize pics&quot;&gt;&lt;/a&gt;1.Optimize pics&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;主要就是CSS Sprites,把多张图合并在同一张图片中，在用CSS里的background-position进行定位。把HTTP请求降到最低，减缓服务器压力。&lt;/li&gt;
@@ -482,10 +593,11 @@ $ cd fileA //进入当前文件夹
 &lt;li&gt;减少css,js文件数量，和合并就合并；&lt;/li&gt;
 &lt;li&gt;css放置head标签内，js放置页面底部；&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;3-Optimize-css&quot;&gt;&lt;a href=&quot;#3-Optimize-css&quot; class=&quot;headerlink&quot; title=&quot;3.Optimize css&quot;&gt;&lt;/a&gt;3.Optimize css&lt;/h4&gt;&lt;ul&gt;
+&lt;h4 id=&quot;3-Optimize-css-js&quot;&gt;&lt;a href=&quot;#3-Optimize-css-js&quot; class=&quot;headerlink&quot; title=&quot;3.Optimize css/js&quot;&gt;&lt;/a&gt;3.Optimize css/js&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;减少层级关系；&lt;/li&gt;
 &lt;li&gt;css代码简写，eg : margin: 1px 2px 3px 4px;&lt;/li&gt;
 &lt;li&gt;压缩代码：&lt;a href=&quot;http://tool.chinaz.com/Tools/CssFormat.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;站长工具&lt;/a&gt;，gulp…&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://closure-compiler.appspot.com/home&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;谷歌 Closure Compiler&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;4-use-Content-Delivery-Network-CDN&quot;&gt;&lt;a href=&quot;#4-use-Content-Delivery-Network-CDN&quot; class=&quot;headerlink&quot; title=&quot;4.use Content Delivery Network(CDN)&quot;&gt;&lt;/a&gt;4.use Content Delivery Network(CDN)&lt;/h4&gt;&lt;h4 id=&quot;5-No-404s&quot;&gt;&lt;a href=&quot;#5-No-404s&quot; class=&quot;headerlink&quot; title=&quot;5.No 404s&quot;&gt;&lt;/a&gt;5.No 404s&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;Getting a useless response&lt;/li&gt;
