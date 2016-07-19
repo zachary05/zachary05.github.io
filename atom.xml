@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-07-19T02:07:43.000Z</updated>
+  <updated>2016-07-19T15:53:02.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -16,11 +16,217 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Bower使用方法总结</title>
+    <title>gulp 学习总结</title>
+    <link href="http://zachary05.github.io/2016/07/19/gulp-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    <id>http://zachary05.github.io/2016/07/19/gulp-学习总结/</id>
+    <published>2016-07-19T15:47:34.000Z</published>
+    <updated>2016-07-19T15:53:02.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;gulp是基于Node实现Web前端自动化开发的工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我觉得gulp就是用来自动压缩js/css/images，自动编译sass/less, 自动加前缀。这些功能能让文件更小，提高网页加载速度，同时都是gulp自动完成的，所以很爽。&lt;/p&gt;
+&lt;h3 id=&quot;安装gulp&quot;&gt;&lt;a href=&quot;#安装gulp&quot; class=&quot;headerlink&quot; title=&quot;安装gulp&quot;&gt;&lt;/a&gt;安装gulp&lt;/h3&gt;&lt;p&gt;gulp是基于Node, 所以得先安装Node再安装gulp&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ npm install gulp -g&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;开发环境中，可以在开发项目的目录安装：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ npm init //首先初始化&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;初始化之后会自动生成&lt;code&gt;package.json&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ npm install gulp --save-dev //gulp将自动写入package.json中的devDependencies&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后我们需要安装什么包就直接：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ npm install xxx --save-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;gulp所以得配置都在gulpfile.js文件中，所以我们得新建一个文件：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gulpfile.js //放在项目目录中&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;gulp使用方法&quot;&gt;&lt;a href=&quot;#gulp使用方法&quot; class=&quot;headerlink&quot; title=&quot;gulp使用方法&quot;&gt;&lt;/a&gt;gulp使用方法&lt;/h3&gt;&lt;h4 id=&quot;gulp-压缩JS&quot;&gt;&lt;a href=&quot;#gulp-压缩JS&quot; class=&quot;headerlink&quot; title=&quot;gulp 压缩JS&quot;&gt;&lt;/a&gt;gulp 压缩JS&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;用gulp压缩Js做例子,其他配置都差不多&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;先把项目的根目录安排一下：所有的js放入一个文件夹，叫&lt;code&gt;js&lt;/code&gt;好了，所有的css放入一个文件夹，叫&lt;code&gt;css&lt;/code&gt;好了..&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;再创建一个文件夹叫&lt;code&gt;dist&lt;/code&gt;好了放在项目根目录，用于存放gulp处理后的各种文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;然后要安装相对应的包，比如说压缩JS的包叫做&lt;code&gt;gulp-uglify&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;$ npm install gulp-uglify --save-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  //可能是压缩过后js变丑了，多以叫uglify&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;然后在gulpfile.js中配置文件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;获取这个包：&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;var uglify = require(&amp;quot;gulp-uglify&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;创建压缩任务：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gulp.task(&amp;quot;script&amp;quot;, function(){
+    gulp.src(&amp;quot;js/*.js&amp;quot;)
+        .pipe(uglify())
+        .pipe(gulp.dest(&amp;quot;dist/js&amp;quot;));
+})
+//gulp.task(name, fun) - 创建一个任务，叫做name, 然后执行fun函数
+//gulp.src(path) - 选择要用来处理的文件路径
+//gulp.pipe - 相当于把一个文件放在管道里通向另一个文件，我这边的文件改变了，那边的也自动改变了。
+//gulp.dest - 处理过后的文件路径，输出文件
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;监听文件配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gulp.task(&amp;quot;watchscript&amp;quot;, function(){
+    gulp.watch(&amp;quot;js/*.js&amp;quot;, [&amp;quot;script&amp;quot;]);
+})
+//gulp.watch(path, func) - 监听文件修改，执行上面定义的“script”任务。有很多个任务的话，就放进数组里,如：[&amp;quot;task1&amp;quot;,&amp;quot;task2&amp;quot;]。
+//在终端里输入gulp watchscript 就开始执行任务了。
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;设置默认任务：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gulp.task(&amp;quot;default&amp;quot;, [&amp;quot;watchscript&amp;quot;]);
+//终端里输入gulp，即开始执行&amp;quot;watchscript&amp;quot;任务。
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;gulp-压缩css&quot;&gt;&lt;a href=&quot;#gulp-压缩css&quot; class=&quot;headerlink&quot; title=&quot;gulp 压缩css&quot;&gt;&lt;/a&gt;gulp 压缩css&lt;/h4&gt;&lt;p&gt;&lt;code&gt;$ npm install gulp-minify-css --save-dev&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var minifycss = require(&amp;quot;gulp-minify-css&amp;quot;);
+
+gulp.task(&amp;quot;minifycss&amp;quot;, function(){
+    gulp.src(&amp;quot;css/*.css&amp;quot;)
+        .pipe(nimifycss())
+        .pipe(gulp.dest(&amp;quot;dist/css&amp;quot;))
+)
+gulp.task(&amp;quot;watchcss&amp;quot;, function(){
+    gulp.watch(&amp;quot;css/*.css&amp;quot;, [&amp;quot;minifycss&amp;quot;])
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;gulp-压缩图片&quot;&gt;&lt;a href=&quot;#gulp-压缩图片&quot; class=&quot;headerlink&quot; title=&quot;gulp 压缩图片&quot;&gt;&lt;/a&gt;gulp 压缩图片&lt;/h4&gt;&lt;p&gt;&lt;code&gt;$ npm install gulp-imagemin --save-dev&lt;/code&gt;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gulp.task(&amp;quot;image&amp;quot;, function() {
+    gulp.src(&amp;quot;images/*.*&amp;quot;)
+        .pipe(imagemin())
+        .pipe(gulp.dest(&amp;quot;dist/images&amp;quot;));
+})
+gulp.task(&amp;apos;watchimage&amp;apos;, function() {
+    gulp.watch(&amp;quot;images/*.*&amp;quot;, [&amp;quot;image&amp;quot;]);
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;gulp-编译sass&quot;&gt;&lt;a href=&quot;#gulp-编译sass&quot; class=&quot;headerlink&quot; title=&quot;gulp 编译sass&quot;&gt;&lt;/a&gt;gulp 编译sass&lt;/h4&gt;&lt;p&gt;&lt;code&gt;$ npm install gulp-sass --save-dev&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var sass = require(&amp;quot;gulp-sass&amp;quot;);
+
+gulp.task(&amp;quot;sass&amp;quot;, function(){
+    task.src(&amp;quot;scss/*.scss&amp;quot;)
+        .pipe(sass()).on(&amp;quot;error&amp;quot;, function(err){
+            console.error(&amp;quot;Error!&amp;quot;, err.message);
+        })
+        .pipe(gulp.dest(&amp;quot;dist/css&amp;quot;))
+})
+gulp.task(&amp;quot;watchsass&amp;quot;, function(){
+    gulp.watch(&amp;quot;scss/*.scss&amp;quot;, [&amp;quot;sass&amp;quot;])
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;配置-gutil&quot;&gt;&lt;a href=&quot;#配置-gutil&quot; class=&quot;headerlink&quot; title=&quot;配置 gutil&quot;&gt;&lt;/a&gt;配置 gutil&lt;/h4&gt;&lt;p&gt;用来输出文字并可以有颜色。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ npm install gulp-util --save-dev&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;大致用法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var gutil = require(&amp;quot;gulp-util&amp;quot;)
+
+gulp.task(&amp;quot;default&amp;quot;,function(){
+    gutil.log(&amp;apos;xxx&amp;apos;)//直接输出文字
+    gutil.log(gutil.color.red(&amp;quot;error&amp;quot;))//输出带有颜色的文字
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;配置-watchpath&quot;&gt;&lt;a href=&quot;#配置-watchpath&quot; class=&quot;headerlink&quot; title=&quot;配置 watchpath&quot;&gt;&lt;/a&gt;配置 watchpath&lt;/h4&gt;&lt;p&gt;&lt;code&gt;gulp.watch&lt;/code&gt;用来监听文件的变化，但是有个问题，比方说当一个js文件夹里有多个js文件，那么修改一个js文件时，&lt;code&gt;gulp.watch&lt;/code&gt;将会编译所有的js文件，但是我只想它编译我当前修改的这个文件。&lt;/p&gt;
+&lt;p&gt;所以说，要引进一个包，用来监听修改的文件:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ npm install gulp-watch-path --save-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置gulp file.js:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var watchPath = require(&amp;quot;gulp-watch-path&amp;quot;)
+
+gulp.task(&amp;quot;watchjs&amp;quot;,function(){
+    gulp.watch(&amp;apos;js/**/*.js&amp;apos;, function (event) {
+    var paths = watchPath(event, &amp;apos;js/&amp;apos;, &amp;apos;dist/&amp;apos;) //把路径赋值给paths, paths因此有一下属性：
+    /*
+    paths
+        { srcPath: &amp;apos;js/xx.js&amp;apos;,
+          srcDir: &amp;apos;js/&amp;apos;,
+          distPath: &amp;apos;dist/js/xx.js&amp;apos;,
+          distDir: &amp;apos;dist/js/&amp;apos;,
+          srcFilename: &amp;apos;xx.js&amp;apos;,
+          distFilename: &amp;apos;xx.js&amp;apos; }
+    */
+    gutil.log(gutil.colors.green(event.type) + &amp;apos; &amp;apos; + paths.srcPath)
+    gutil.log(&amp;apos;Dist &amp;apos; + paths.distPath)   
+
+    gulp.src(paths.srcPath) 
+        .pipe(uglify())
+        .pipe(gulp.dest(paths.distDir))
+       })
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;配置-combiner&quot;&gt;&lt;a href=&quot;#配置-combiner&quot; class=&quot;headerlink&quot; title=&quot;配置 combiner&quot;&gt;&lt;/a&gt;配置 combiner&lt;/h4&gt;&lt;p&gt;当编辑js文件时，假如写错了，那么终端就会报错，并且退出gulp，这个时候我不想让终端退出，并显示错误，那么我要安装一个包:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install stream-combiner2 --save-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置gulp file.js:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var combiner = require(&amp;apos;stream-combiner2&amp;apos;)
+
+var handleError = function (err) {
+var colors = gutil.colors;
+console.log(&amp;apos;\n&amp;apos;)
+gutil.log(colors.red(&amp;apos;Error!&amp;apos;))
+gutil.log(&amp;apos;fileName: &amp;apos; + colors.red(err.fileName))
+gutil.log(&amp;apos;lineNumber: &amp;apos; + colors.red(err.lineNumber))
+gutil.log(&amp;apos;message: &amp;apos; + err.message)
+gutil.log(&amp;apos;plugin: &amp;apos; + colors.yellow(err.plugin))
+}
+
+gulp.task(&amp;apos;watchjs&amp;apos;, function () {
+gulp.watch(&amp;apos;js/**/*.js&amp;apos;, function (event) {
+    var paths = watchPath(event, &amp;apos;js/&amp;apos;, &amp;apos;dist/&amp;apos;)
+    /*
+    paths
+        { srcPath: &amp;apos;js/xx.js&amp;apos;,
+          srcDir: &amp;apos;js/&amp;apos;,
+          distPath: &amp;apos;dist/js/log.js&amp;apos;,
+          distDir: &amp;apos;dist/js/&amp;apos;,
+          srcFilename: &amp;apos;xx.js&amp;apos;,
+          distFilename: &amp;apos;xx.js&amp;apos; }
+    */
+    gutil.log(gutil.colors.green(event.type) + &amp;apos; &amp;apos; + paths.srcPath)
+    gutil.log(&amp;apos;Dist &amp;apos; + paths.distPath)
+
+    var combined = combiner.obj([
+        gulp.src(paths.srcPath),
+        uglify(),
+        gulp.dest(paths.distDir)
+    ])
+
+    combined.on(&amp;apos;error&amp;apos;, handleError)
+       })
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h4 id=&quot;gulp-安装的包&quot;&gt;&lt;a href=&quot;#gulp-安装的包&quot; class=&quot;headerlink&quot; title=&quot;gulp 安装的包&quot;&gt;&lt;/a&gt;gulp 安装的包&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;&amp;quot;devDependencies&amp;quot;: {
+&amp;quot;gulp&amp;quot;: &amp;quot;^3.9.1&amp;quot;,
+&amp;quot;gulp-autoprefixer&amp;quot;: &amp;quot;^3.1.0&amp;quot;,
+&amp;quot;gulp-imagemin&amp;quot;: &amp;quot;^3.0.1&amp;quot;,
+&amp;quot;gulp-minify-css&amp;quot;: &amp;quot;^1.2.4&amp;quot;,
+&amp;quot;gulp-sass&amp;quot;: &amp;quot;^2.3.2&amp;quot;,
+&amp;quot;gulp-sourcemaps&amp;quot;: &amp;quot;^1.6.0&amp;quot;,
+&amp;quot;gulp-uglify&amp;quot;: &amp;quot;^1.5.4&amp;quot;,
+&amp;quot;gulp-util&amp;quot;: &amp;quot;^3.0.7&amp;quot;,
+&amp;quot;gulp-watch-path&amp;quot;: &amp;quot;^0.1.0&amp;quot;,
+&amp;quot;stream-combiner2&amp;quot;: &amp;quot;^1.1.1&amp;quot;
+ }
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;gulp是基于Node实现Web前端自动化开发的工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我觉得gulp就是用来自动压缩js/css/images，自动编译sass/less, 自动加前缀。这些功能能让文件更小，提高网页加载速度，同时都是g
+    
+    </summary>
+    
+    
+      <category term="gulp" scheme="http://zachary05.github.io/tags/gulp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bower 使用方法总结</title>
     <link href="http://zachary05.github.io/2016/07/19/Bower%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
     <id>http://zachary05.github.io/2016/07/19/Bower使用方法总结/</id>
     <published>2016-07-19T01:57:59.000Z</published>
-    <updated>2016-07-19T02:07:43.000Z</updated>
+    <updated>2016-07-19T02:16:18.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;Bower&quot;&gt;&lt;a href=&quot;#Bower&quot; class=&quot;headerlink&quot; title=&quot;Bower&quot;&gt;&lt;/a&gt;Bower&lt;/h4&gt;&lt;p&gt;我一直以为Bower翻译过来应该是&lt;code&gt;鞠躬的人&lt;/code&gt;，&lt;code&gt;bow&lt;/code&gt;不是鞠躬吗，加上&lt;code&gt;er&lt;/code&gt;成了&lt;code&gt;鞠躬的人&lt;/code&gt;，后来我查了一下，&lt;code&gt;bower&lt;/code&gt;意思是&lt;code&gt;树荫&lt;/code&gt;或者&lt;code&gt;闺房&lt;/code&gt;，这…&lt;/p&gt;
 &lt;p&gt;😐&lt;/p&gt;
@@ -497,7 +703,7 @@ $ cd fileA //进入当前文件夹
     <link href="http://zachary05.github.io/2016/06/19/HTTP%E8%AF%B7%E6%B1%82-TCP%E5%8D%8F%E8%AE%AE-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
     <id>http://zachary05.github.io/2016/06/19/HTTP请求-TCP协议-三次握手-四次挥手/</id>
     <published>2016-06-19T01:08:56.000Z</published>
-    <updated>2016-06-19T08:08:24.000Z</updated>
+    <updated>2016-07-19T02:19:57.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;HTTP请求&quot;&gt;&lt;a href=&quot;#HTTP请求&quot; class=&quot;headerlink&quot; title=&quot;HTTP请求&quot;&gt;&lt;/a&gt;HTTP请求&lt;/h4&gt;&lt;p&gt;HTTP请求一般过程：&lt;/p&gt;
 &lt;ul&gt;
@@ -635,7 +841,8 @@ $ cd fileA //进入当前文件夹
 3.这个时候，你就等着，直到女朋友给你信息说“好的，我们分手吧” &amp;gt;&amp;gt;&amp;gt;
 4.你收到了信息之后，你就发个信息确认一下“我们已经分手了是吧” &amp;gt;&amp;gt;&amp;gt;
 5.这个时候，你就等着，等啊等啊，没等到回复，你就知道你们已经分手了 &amp;gt;&amp;gt;&amp;gt;
-6.分手结束。[真是个悲伤的故事😭]
+6.分手结束。
+7.[真是个悲伤的故事]
 &lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
 &lt;p&gt;完整的请求连接图示：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/%E5%AE%8C%E6%95%B4%E7%9A%84HTTP%E8%AF%B7%E6%B1%82%E8%BF%9E%E6%8E%A5.gif&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
