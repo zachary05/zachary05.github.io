@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-07-18T15:06:48.000Z</updated>
+  <updated>2016-07-19T02:07:43.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -14,6 +14,92 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Bower使用方法总结</title>
+    <link href="http://zachary05.github.io/2016/07/19/Bower%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://zachary05.github.io/2016/07/19/Bower使用方法总结/</id>
+    <published>2016-07-19T01:57:59.000Z</published>
+    <updated>2016-07-19T02:07:43.000Z</updated>
+    
+    <content type="html">&lt;h4 id=&quot;Bower&quot;&gt;&lt;a href=&quot;#Bower&quot; class=&quot;headerlink&quot; title=&quot;Bower&quot;&gt;&lt;/a&gt;Bower&lt;/h4&gt;&lt;p&gt;我一直以为Bower翻译过来应该是&lt;code&gt;鞠躬的人&lt;/code&gt;，&lt;code&gt;bow&lt;/code&gt;不是鞠躬吗，加上&lt;code&gt;er&lt;/code&gt;成了&lt;code&gt;鞠躬的人&lt;/code&gt;，后来我查了一下，&lt;code&gt;bower&lt;/code&gt;意思是&lt;code&gt;树荫&lt;/code&gt;或者&lt;code&gt;闺房&lt;/code&gt;，这…&lt;/p&gt;
+&lt;p&gt;😐&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通常情况下，写一个网页需要用到诸多库，如jQuery,modernizr…但是库多了，就不太好管理了，所以这个时候Bower就华丽丽地出现了，用于下载，更新，查询各种库，所以是个挺好用的&lt;code&gt;库管理工具&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那么就开始用吧！首先安装Bower，但是Bower是基于Node.js的，所以要先安装Node.js，然后在进行安装。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ sudu npm install bower -g //全局安装Bower&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ sudu npm update bower -g //更新&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ sudu npm uninstall bower -g //卸载&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;可以查看&lt;strong&gt;帮助&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ bower help //查看帮助:&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Usage:
+
+bower &amp;lt;command&amp;gt; [&amp;lt;args&amp;gt;] [&amp;lt;options&amp;gt;]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Commands:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cache                   Manage bower cache
+help                    Display help information about Bower
+home                    Opens a package homepage into your favorite browser
+info                    Info of a particular package
+init                    Interactively create a bower.json file
+install                 Install a package locally
+link                    Symlink a package folder
+list                    List local packages - and possible updates
+login                   Authenticate with GitHub and store credentials
+lookup                  Look up a package URL by name
+prune                   Removes local extraneous packages
+register                Register a package
+search                  Search for a package by name
+update                  Update a local package
+uninstall               Remove a local package
+unregister              Remove a package from the registry
+version                 Bump a package version
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Options:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-f, --force             Makes various commands more forceful
+-j, --json              Output consumable JSON
+-l, --loglevel          What level of logs to report
+-o, --offline           Do not hit the network
+-q, --quiet             Only output important information
+-s, --silent            Do not output anything, besides errors
+-V, --verbose           Makes output more verbose
+--allow-root            Allows running commands as root
+-v, --version           Output Bower version
+--no-color              Disable colors
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;开始使用&quot;&gt;&lt;a href=&quot;#开始使用&quot; class=&quot;headerlink&quot; title=&quot;开始使用&quot;&gt;&lt;/a&gt;开始使用&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;初始化&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;$ bower init //初始化项目目录&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;安装&lt;/strong&gt;：例如安装jquery&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;$ bower install jquery //安装jquery库&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;卸载&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;$ bower uninstall jquery //卸载jquery库&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;更新&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;$ bower update jquery //更新jquery库&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;搜索&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;$ bower search jquery //搜索jquery&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;查看信息&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;$ bower info jquery //查看信息&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;显示&lt;/strong&gt;安装的库：&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;$ bower ls //也可以用list, 不过ls简单些&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Bower&quot;&gt;&lt;a href=&quot;#Bower&quot; class=&quot;headerlink&quot; title=&quot;Bower&quot;&gt;&lt;/a&gt;Bower&lt;/h4&gt;&lt;p&gt;我一直以为Bower翻译过来应该是&lt;code&gt;鞠躬的人&lt;/code&gt;，&lt;code&gt;bow&lt;/code&gt;不是鞠躬吗，加
+    
+    </summary>
+    
+    
+      <category term="Bower" scheme="http://zachary05.github.io/tags/Bower/"/>
+    
+  </entry>
   
   <entry>
     <title>Ajax学习笔记</title>
