@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-07-19T15:53:02.000Z</updated>
+  <updated>2016-07-20T17:21:11.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -14,6 +14,197 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Emmet - 前端神器</title>
+    <link href="http://zachary05.github.io/2016/07/21/Emmet-%E5%89%8D%E7%AB%AF%E7%A5%9E%E5%99%A8/"/>
+    <id>http://zachary05.github.io/2016/07/21/Emmet-前端神器/</id>
+    <published>2016-07-20T17:14:58.000Z</published>
+    <updated>2016-07-20T17:21:11.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Emmet-前端神器&quot;&gt;&lt;a href=&quot;#Emmet-前端神器&quot; class=&quot;headerlink&quot; title=&quot;Emmet 前端神器&quot;&gt;&lt;/a&gt;Emmet 前端神器&lt;/h2&gt;&lt;p&gt;官网给出的解释：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Emmet — the essential toolkit for web-developers&lt;/p&gt;
+&lt;p&gt;(Emmet - 超级重要的前端者的开发工具&lt;/p&gt;
+&lt;p&gt;Emmet is a plugin for many popular text editors which greatly improves HTML &amp;amp; CSS workflow&lt;/p&gt;
+&lt;p&gt;(Emmet 是一个插件，支持流行的文本编辑器，它能极大地提高 HTML &amp;amp; CSS 的编程流程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;总而言之，就是很牛逼。可以减少大量重复输入的操作。&lt;/p&gt;
+&lt;p&gt;使用方法也很简单：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入Emmet命令，按&lt;code&gt;tab&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;Emmet命令不能有空格，不能换行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Emmet-常用方法总结&quot;&gt;&lt;a href=&quot;#Emmet-常用方法总结&quot; class=&quot;headerlink&quot; title=&quot;Emmet 常用方法总结&quot;&gt;&lt;/a&gt;Emmet 常用方法总结&lt;/h2&gt;&lt;h3 id=&quot;Emmet-HTML&quot;&gt;&lt;a href=&quot;#Emmet-HTML&quot; class=&quot;headerlink&quot; title=&quot;Emmet - HTML&quot;&gt;&lt;/a&gt;Emmet - HTML&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;! // 自动生成HTML文档初始结构&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+      &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;link:css&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;style.css&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;meta:vp&lt;/code&gt;        &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;div.i#i //自动生成带有类名和id名的标签&lt;/code&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;i&amp;quot; id=&amp;quot;i&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;     
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;div.i#i+div.i1#i1 //‘+’代表兄弟标签&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;i&amp;quot; id=&amp;quot;i&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;i1&amp;quot; id=&amp;quot;i1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;div.i#i&amp;gt;div.i1#i1 //&amp;#39;&amp;gt;&amp;#39;代表子标签&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;i&amp;quot; id=&amp;quot;i&amp;quot;&amp;gt;
+     &amp;lt;div class=&amp;quot;i1&amp;quot; id=&amp;quot;i1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;div.i#i&amp;gt;div.i1#i1^div.i2#i2 //&amp;#39;^&amp;#39;代表上级标签&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;i&amp;quot; id=&amp;quot;i&amp;quot;&amp;gt;
+      &amp;lt;div class=&amp;quot;i1&amp;quot; id=&amp;quot;i1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+   &amp;lt;div class=&amp;quot;i2&amp;quot; id=&amp;quot;i2&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;a*3 //&amp;#39;*&amp;#39;代表重复次数&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
+&amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
+&amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;(div&amp;gt;a*3)+div //&amp;#39;()&amp;#39;代表分组，因此前面一组与后面的div是兄弟标签&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
+    &amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
+    &amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
+       &amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;a[href=&amp;quot;#&amp;quot; title=&amp;quot;hi&amp;quot;] //&amp;#39;[attr]代表标签内的属性&amp;#39;&lt;/code&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;#&amp;quot; title=&amp;quot;hi&amp;quot;&amp;gt;&amp;lt;/a&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;li.i$*3 //&amp;#39;$&amp;#39;代表编号，自动生成编号&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;li class=&amp;quot;i1&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+ &amp;lt;li class=&amp;quot;i2&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;li class=&amp;quot;i3&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;li.i$@-*3 //&amp;#39;@-&amp;#39;代表倒序编号&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;li class=&amp;quot;i3&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+  &amp;lt;li class=&amp;quot;i2&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+  &amp;lt;li class=&amp;quot;i1&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;li.i$@3*3 //&amp;#39;@n&amp;#39;代表从n开始编号&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;li class=&amp;quot;i3&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+  &amp;lt;li class=&amp;quot;i4&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+  &amp;lt;li class=&amp;quot;i5&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;p{hello,world} //&amp;quot;{}&amp;quot;代表文本内容&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;hello,world&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;input &amp;amp; button&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;inp = input:t = input:text
+input:p = input:password
+input:c = input:checkbox
+input:f = input:file
+input:s = input:submit
+input:i = input:image
+input:b = input:button
+btn:s = button:s = button:submit
+btn:r = button:r = button:radio
+btn:d = button:d = button:disabled        
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;Emmet-CSS&quot;&gt;&lt;a href=&quot;#Emmet-CSS&quot; class=&quot;headerlink&quot; title=&quot;Emmet - CSS&quot;&gt;&lt;/a&gt;Emmet - CSS&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;w100&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;width: 100px;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;w100p&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;width: 100%;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;w100+w100p&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;width: 100px;
+  width: 100%;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;m10-10 //用&amp;#39;-&amp;#39;连接多个属性&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;margin: 10px 10px;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;m10--10&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;margin: 10px -10px;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;m10em10em //如果带有单位则可以省略&amp;#39;-&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;margin: 10em 10em;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;@&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@font-face {
+      font-family:;
+      src:url();
+}   
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;@f+&lt;/code&gt;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@font-face {
+     font-family: &amp;apos;FontName&amp;apos;;
+      src: url(&amp;apos;FileName.eot&amp;apos;);
+      src: url(&amp;apos;FileName.eot?#iefix&amp;apos;) format(&amp;apos;embedded-opentype&amp;apos;),
+     url(&amp;apos;FileName.woff&amp;apos;) format(&amp;apos;woff&amp;apos;),
+     url(&amp;apos;FileName.ttf&amp;apos;) format(&amp;apos;truetype&amp;apos;),
+     url(&amp;apos;FileName.svg#FontName&amp;apos;) format(&amp;apos;svg&amp;apos;);
+      font-style: normal;
+      font-weight: normal;
+}    
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-border-radius //加上&amp;#39;-&amp;#39;可以自动生成前缀&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-webkit-border-radius: ;
+  -moz-border-radius: ;
+-ms-border-radius: ;
+  -o-border-radius: ;
+  border-radius: ;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;lg(left,#83c9d2,50%,#4e7b85) //自动生成背景渐变&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;background-image: -webkit-linear-gradient(left, #83c9d2, 50%, #4e7b85);
+ background-image: -o-linear-gradient(left, #83c9d2, 50%, #4e7b85);
+ background-image: linear-gradient(to right, #83c9d2, 50%, #4e7b85);
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Emmet-Bonus&quot;&gt;&lt;a href=&quot;#Emmet-Bonus&quot; class=&quot;headerlink&quot; title=&quot;Emmet - Bonus&quot;&gt;&lt;/a&gt;Emmet - Bonus&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;lorem //生成Lorem，并且可以指定数量，如lorem5&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae voluptatem aperiam obcaecati consequatur veniam maiores temporibus, similique. Obcaecati a voluptate, fuga quia modi nostrum sint tenetur laboriosam voluptas porro eaque.
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;隐式标签 //Emmet会自动根据父标签判定当前标签类别。&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;默认为 div
+ul 或 ol 下默认为 li
+table 下默认为 tr
+tr 下默认为 td
+select 或 optgroup 下默认为 option
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/Lorem_ipsum&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Lorem in Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://docs.emmet.io/cheat-sheet/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Emmet Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Emmet-前端神器&quot;&gt;&lt;a href=&quot;#Emmet-前端神器&quot; class=&quot;headerlink&quot; title=&quot;Emmet 前端神器&quot;&gt;&lt;/a&gt;Emmet 前端神器&lt;/h2&gt;&lt;p&gt;官网给出的解释：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Emmet — t
+    
+    </summary>
+    
+    
+      <category term="plugin" scheme="http://zachary05.github.io/tags/plugin/"/>
+    
+  </entry>
   
   <entry>
     <title>gulp 学习总结</title>
