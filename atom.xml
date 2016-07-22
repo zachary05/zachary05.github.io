@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-07-20T17:21:11.000Z</updated>
+  <updated>2016-07-22T17:25:53.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iTerm2 一款terminal 毕竟颜值高</title>
+    <link href="http://zachary05.github.io/2016/07/23/iTerm2-%E6%AF%95%E7%AB%9F%E9%A2%9C%E5%80%BC%E9%AB%98/"/>
+    <id>http://zachary05.github.io/2016/07/23/iTerm2-毕竟颜值高/</id>
+    <published>2016-07-22T17:21:11.000Z</published>
+    <updated>2016-07-22T17:25:53.000Z</updated>
+    
+    <content type="html">&lt;p&gt;一直都用的是Mac自带的terminal,直到我发现了iTerm2,最喜欢的就是它这个快捷呼出的功能，一道terminal从天而降的既视感，就像天外来物，超级炫酷。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/iterm21.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后我就翻了一下&lt;a href=&quot;https://www.iterm2.com/features.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iTerm2&lt;/a&gt;的官网，看看有什么好玩的特征。&lt;/p&gt;
+&lt;p&gt;﻿首先就是这个天外来物了，炫上天。其实主要是方便快捷，自己设置快捷键，就可以快速呼出终端。&lt;/p&gt;
+&lt;p&gt;⌘+d 左右分屏&lt;/p&gt;
+&lt;p&gt;⌘+shift+d 上下分屏，像这样&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/iterm22.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;⌘+enter 切到全屏&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/iterm23.jpg&quot; alt=&quot;image&quot;&gt;&lt;br&gt;⌘+f，快速查找，并且高亮&lt;br&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/iterm24.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;⌘+； 自动补全&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/iterm25.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;⌘+shift+h 显示历史输入记录&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/iterm26.jpg&quot; alt=&quot;image&quot;&gt;&lt;br&gt;⌘+/ 显示光标&lt;br&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com/iterm27.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;⌘+n 新建窗口&lt;/p&gt;
+&lt;p&gt;⌘+t 新建标签&lt;/p&gt;
+&lt;p&gt;⌘+b 查看历史&lt;/p&gt;
+&lt;p&gt;选中即复制，直接按⌘+v就是粘贴&lt;/p&gt;
+&lt;p&gt;还有一些功能自己就可以⌘+,跳转到自行设置啦~&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直都用的是Mac自带的terminal,直到我发现了iTerm2,最喜欢的就是它这个快捷呼出的功能，一道terminal从天而降的既视感，就像天外来物，超级炫酷。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xthft.com1.z0.glb.clouddn.com
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://zachary05.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Emmet - 前端神器</title>
