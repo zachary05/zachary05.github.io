@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-07-23T14:08:36.000Z</updated>
+  <updated>2016-07-26T16:27:10.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SASS 常用语法总结</title>
+    <link href="http://zachary05.github.io/2016/07/27/SASS-%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://zachary05.github.io/2016/07/27/SASS-常用语法总结/</id>
+    <published>2016-07-26T16:20:12.000Z</published>
+    <updated>2016-07-26T16:27:10.000Z</updated>
+    
+    <content type="html">&lt;p&gt;首先，说一下.sass与.scss结尾的文件的不同。&lt;/p&gt;
+&lt;p&gt;.sass文件对代码排版要求很高，因为没有大括号，分号，可读性很差，所以用.scss更好！&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1 . 变量，方便修改和维护，变量以$开头&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;$hight : 10px;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;2 . 嵌套，省略大量重复操作，层级关系分明&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;body{
+    height: 100vh;
+    width: 100vw;
+    #div1{
+        position: relative;
+        width: 100px;
+        height: 100px;
+            #div2{
+              position: absolute;
+              width: 50px;
+              height: 50px;
+            }
+          }
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;3 . 继承，省略大量重复操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;.xx{padding: 0;margin: 0;}
+.yy{
+  @extend .xx;
+  position: absolute;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;4 . @mixin @include 重用代码块，省略大量重复操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;@mixin xx {
+      position: absolute;
+      height: 1px;
+      width: 1px;
+}
+.class1{
+      @include xx;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;5 . 计算，方便，省脑&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;.class1{
+      height: 100px / 5 + 30px;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;6 . @import，插入外部文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;@import &amp;quot;./sass/big.scss&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;编译scss为css的方法:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://css2sass.herokuapp.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;css2sass&lt;/a&gt; 一个编译sass的网站&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/oklai/koala&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;koala&lt;/a&gt;, 一个很友好的客户端，且免费&lt;/li&gt;
+&lt;li&gt;使用gulp进行编译        &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，说一下.sass与.scss结尾的文件的不同。&lt;/p&gt;
+&lt;p&gt;.sass文件对代码排版要求很高，因为没有大括号，分号，可读性很差，所以用.scss更好！&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1 . 变量，方便修改和维护，变量以$开头&lt;/p&gt;
+&lt;/bloc
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://zachary05.github.io/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>I/O Wikipedia翻译文档</title>
@@ -1018,7 +1105,7 @@ $ cd fileA //进入当前文件夹
     <link href="http://zachary05.github.io/2016/06/19/HTTP%E8%AF%B7%E6%B1%82-TCP%E5%8D%8F%E8%AE%AE-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
     <id>http://zachary05.github.io/2016/06/19/HTTP请求-TCP协议-三次握手-四次挥手/</id>
     <published>2016-06-19T01:08:56.000Z</published>
-    <updated>2016-07-19T02:19:57.000Z</updated>
+    <updated>2016-07-24T07:56:49.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;HTTP请求&quot;&gt;&lt;a href=&quot;#HTTP请求&quot; class=&quot;headerlink&quot; title=&quot;HTTP请求&quot;&gt;&lt;/a&gt;HTTP请求&lt;/h4&gt;&lt;p&gt;HTTP请求一般过程：&lt;/p&gt;
 &lt;ul&gt;
@@ -1076,7 +1163,7 @@ $ cd fileA //进入当前文件夹
 &lt;hr&gt;
 &lt;h4 id=&quot;TCP&quot;&gt;&lt;a href=&quot;#TCP&quot; class=&quot;headerlink&quot; title=&quot;TCP&quot;&gt;&lt;/a&gt;TCP&lt;/h4&gt;&lt;p&gt;(Transmission Control Protocol,传输控制协议)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;TCP是一种面向连接的，可靠的，基于字节流的通讯协议，数据在传输前简历连接，传输完毕后断开连接。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;TCP是一种面向连接的，可靠的，基于字节流的通讯协议，数据在传输前建立连接，传输完毕后断开连接。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;TCP的作用是流量控制，主要是控制数据流的传输。&lt;/p&gt;
 &lt;/li&gt;
