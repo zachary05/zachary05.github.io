@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-07-26T16:27:10.000Z</updated>
+  <updated>2016-07-31T02:23:22.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -16,11 +16,76 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CSS - 浮动</title>
+    <link href="http://zachary05.github.io/2016/07/31/CSS-%E6%B5%AE%E5%8A%A8/"/>
+    <id>http://zachary05.github.io/2016/07/31/CSS-浮动/</id>
+    <published>2016-07-31T02:09:31.000Z</published>
+    <updated>2016-07-31T02:23:22.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;浮动意味着内层元素脱离文档流，会因此外层元素不会被撑开。背景不能显示。margin,padding不能正确显示。&lt;/p&gt;
+&lt;p&gt;浮动元素旁边的行框（如&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;内文本）被缩短，从而给浮动框留出空间，行框围绕浮动元素。&lt;/p&gt;
+&lt;p&gt;浮动元素不重叠。若水平方向没有足够空间，则向下移动。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;清除浮动方法：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1.增加一个div，设置&lt;code&gt;.clear{clear:both; height: 0; line-height: 0;}&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;outer&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;div1&amp;quot;&amp;gt;1&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;div2&amp;quot;&amp;gt;2&amp;lt;/div&amp;gt;
+       &amp;lt;div class=&amp;quot;div3&amp;quot;&amp;gt;3&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;clear&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2.父级(容器)div定义&lt;code&gt;overflow:auto或者hidden&lt;/code&gt; (zoom:1;//zoom设为1为了兼容IE6)&lt;/p&gt;
+&lt;p&gt;3.父级(容器)div定义:after，设置clear:both，原理跟第一种一样(只是变为了父级div)（此外，要给容器设置zoom:1,兼容IE6/7）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.outer :after{
+    clear:both;
+    content:&amp;apos;.&amp;apos;;
+    display:block;//FF/chrome/opera/IE8不能缺少
+    width: 0;
+    height: 0;
+    visibility:hidden;//让浏览器渲染它但不显示
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;4.给临近元素设置&lt;code&gt;clear:both;&lt;/code&gt; - 这个临近元素有内容，原理跟第一种一样。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;References:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3school.com.cn/cssref/pr_class_clear.asp2.&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;w3school - clear&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.w3school.com.cn/css/css_positioning_floating.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;w3school - float&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000005687491&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;segmentfault - float&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000004237437&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;segmentfault - 清除浮动&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;浮动意味着内层元素脱离文档流，会因此外层元素不会被撑开。背景不能显示。margin,padding不能正确显示。&lt;/p&gt;
+&lt;p&gt;浮动元素旁边的行框（如&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;内文本）被缩短，从而给浮动框留出空间，行框围绕浮动元素
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://zachary05.github.io/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://zachary05.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SASS 常用语法总结</title>
     <link href="http://zachary05.github.io/2016/07/27/SASS-%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/"/>
     <id>http://zachary05.github.io/2016/07/27/SASS-常用语法总结/</id>
     <published>2016-07-26T16:20:12.000Z</published>
-    <updated>2016-07-26T16:27:10.000Z</updated>
+    <updated>2016-07-27T00:21:05.000Z</updated>
     
     <content type="html">&lt;p&gt;首先，说一下.sass与.scss结尾的文件的不同。&lt;/p&gt;
 &lt;p&gt;.sass文件对代码排版要求很高，因为没有大括号，分号，可读性很差，所以用.scss更好！&lt;/p&gt;

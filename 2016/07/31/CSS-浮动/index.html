@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -82,15 +82,40 @@
 
 
 
-<meta name="description" content="PersonalBlog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zachary zl">
-<meta property="og:url" content="http://zachary05.github.io/page/2/index.html">
+<meta name="description" content="浮动意味着内层元素脱离文档流，会因此外层元素不会被撑开。背景不能显示。margin,padding不能正确显示。
+浮动元素旁边的行框（如&amp;lt;p&amp;gt;内文本）被缩短，从而给浮动框留出空间，行框围绕浮动元素。
+浮动元素不重叠。若水平方向没有足够空间，则向下移动。
+
+
+
+清除浮动方法：
+
+1.增加一个div，设置.clear{clear:both; height: 0; line-height:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS - 浮动">
+<meta property="og:url" content="http://zachary05.github.io/2016/07/31/CSS-浮动/index.html">
 <meta property="og:site_name" content="Zachary zl">
-<meta property="og:description" content="PersonalBlog">
+<meta property="og:description" content="浮动意味着内层元素脱离文档流，会因此外层元素不会被撑开。背景不能显示。margin,padding不能正确显示。
+浮动元素旁边的行框（如&amp;lt;p&amp;gt;内文本）被缩短，从而给浮动框留出空间，行框围绕浮动元素。
+浮动元素不重叠。若水平方向没有足够空间，则向下移动。
+
+
+
+清除浮动方法：
+
+1.增加一个div，设置.clear{clear:both; height: 0; line-height:">
+<meta property="og:updated_time" content="2016-07-31T02:23:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zachary zl">
-<meta name="twitter:description" content="PersonalBlog">
+<meta name="twitter:title" content="CSS - 浮动">
+<meta name="twitter:description" content="浮动意味着内层元素脱离文档流，会因此外层元素不会被撑开。背景不能显示。margin,padding不能正确显示。
+浮动元素旁边的行框（如&amp;lt;p&amp;gt;内文本）被缩短，从而给浮动框留出空间，行框围绕浮动元素。
+浮动元素不重叠。若水平方向没有足够空间，则向下移动。
+
+
+
+清除浮动方法：
+
+1.增加一个div，设置.clear{clear:both; height: 0; line-height:">
 
 
 
@@ -108,7 +133,7 @@
   };
 </script>
 
-  <title> Zachary zl </title>
+  <title> CSS - 浮动 | Zachary zl </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -139,9 +164,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,9 +291,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -290,10 +313,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/06/19/HTTP请求-TCP协议-三次握手-四次挥手/" itemprop="url">
-                  HTTP请求/TCP协议/三次握手/四次挥手
-                </a>
+                CSS - 浮动
               
             
           </h1>
@@ -305,249 +325,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-19T09:08:56+08:00" content="2016-06-19">
-              2016-06-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/19/HTTP请求-TCP协议-三次握手-四次挥手/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/HTTP请求-TCP协议-三次握手-四次挥手/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-          
-             <span id="/2016/06/19/HTTP请求-TCP协议-三次握手-四次挥手/" class="leancloud_visitors" data-flag-title="HTTP请求/TCP协议/三次握手/四次挥手">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          HTTP请求HTTP请求一般过程：
-
-http客户端发起请求，创建端口
-
-http服务器在端口监听客户端请求
-
-http服务器向客户端返回状态和内容
-
-
-
-
-从输入网站到渲染页面都做了什么🤔：
-
-1.首先浏览器查看自身DNS缓存（查看chrome浏览器NDS缓存：chrome://net-inte
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/19/HTTP请求-TCP协议-三次握手-四次挥手/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/16/网站优化/" itemprop="url">
-                  网站优化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-16T00:29:11+08:00" content="2016-06-16">
-              2016-06-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/16/网站优化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/16/网站优化/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-          
-             <span id="/2016/06/16/网站优化/" class="leancloud_visitors" data-flag-title="网站优化">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          网站优化1.Optimize pics
-主要就是CSS Sprites,把多张图合并在同一张图片中，在用CSS里的background-position进行定位。把HTTP请求降到最低，减缓服务器压力。
-压缩jpg图片，进入PS(shift+alt+command+s)，质量中等45，存储为web所
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/16/网站优化/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/02/作用域与闭包简略“/" itemprop="url">
-                  JavaScript中作用域与闭包
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-05-02T00:31:49+08:00" content="2016-05-02">
-              2016-05-02
+            <time itemprop="dateCreated" datetime="2016-07-31T10:09:31+08:00" content="2016-07-31">
+              2016-07-31
             </time>
           </span>
 
@@ -560,8 +339,8 @@ http服务器向客户端返回状态和内容
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -576,8 +355,8 @@ http服务器向客户端返回状态和内容
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/02/作用域与闭包简略“/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/02/作用域与闭包简略“/" itemprop="commentsCount"></span>
+                <a href="/2016/07/31/CSS-浮动/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/31/CSS-浮动/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -586,7 +365,7 @@ http服务器向客户端返回状态和内容
           
           
           
-             <span id="/2016/05/02/作用域与闭包简略“/" class="leancloud_visitors" data-flag-title="JavaScript中作用域与闭包">
+             <span id="/2016/07/31/CSS-浮动/" class="leancloud_visitors" data-flag-title="CSS - 浮动">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -608,181 +387,135 @@ http服务器向客户端返回状态和内容
       
 
       
-        
-          
-          作用域 (Scope)谈到闭包就必然会说到作用域，在JavaScript中，作用域是执行代码的上下文。
-相关概念：
+        <blockquote>
+<p>浮动意味着内层元素脱离文档流，会因此外层元素不会被撑开。背景不能显示。margin,padding不能正确显示。</p>
+<p>浮动元素旁边的行框（如<code>&lt;p&gt;</code>内文本）被缩短，从而给浮动框留出空间，行框围绕浮动元素。</p>
+<p>浮动元素不重叠。若水平方向没有足够空间，则向下移动。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>清除浮动方法：</p>
+</blockquote>
+<p>1.增加一个div，设置<code>.clear{clear:both; height: 0; line-height: 0;}</code></p>
+<pre><code>&lt;div class=&quot;outer&quot;&gt;
+    &lt;div class=&quot;div1&quot;&gt;1&lt;/div&gt;
+        &lt;div class=&quot;div2&quot;&gt;2&lt;/div&gt;
+       &lt;div class=&quot;div3&quot;&gt;3&lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>2.父级(容器)div定义<code>overflow:auto或者hidden</code> (zoom:1;//zoom设为1为了兼容IE6)</p>
+<p>3.父级(容器)div定义:after，设置clear:both，原理跟第一种一样(只是变为了父级div)（此外，要给容器设置zoom:1,兼容IE6/7）</p>
+<pre><code>.outer :after{
+    clear:both;
+    content:&apos;.&apos;;
+    display:block;//FF/chrome/opera/IE8不能缺少
+    width: 0;
+    height: 0;
+    visibility:hidden;//让浏览器渲染它但不显示
+}
+</code></pre><p>4.给临近元素设置<code>clear:both;</code> - 这个临近元素有内容，原理跟第一种一样。</p>
+<hr>
+<p>References:</p>
+<ol>
+<li><a href="http://www.w3school.com.cn/cssref/pr_class_clear.asp2." target="_blank" rel="external">w3school - clear</a></li>
+</ol>
+<ol>
+<li><p><a href="http://www.w3school.com.cn/css/css_positioning_floating.asp" target="_blank" rel="external">w3school - float</a></p>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000005687491" target="_blank" rel="external">segmentfault - float</a></p>
+</li>
+</ol>
+<ol>
+<li><a href="https://segmentfault.com/a/1190000004237437" target="_blank" rel="external">segmentfault - 清除浮动</a></li>
+</ol>
 
-每个函数都有自己的执行环境。每个执行环境都有一个与之关联的变量对象（环境中定义的所有变量都保存在这个对象中）。全局执行环境是最外围的，在Web浏览器中，被认为是window对象。
-
-
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/02/作用域与闭包简略“/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
       
     </div>
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/27/newStart/" itemprop="url">
-                  NewStart Zachary_zl
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T11:07:34+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/27/newStart/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/newStart/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-          
-             <span id="/2016/04/27/newStart/" class="leancloud_visitors" data-flag-title="NewStart Zachary_zl">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          This is a Newly Start of my Personal Blog测试
-
- This Blog was posted at Wed Apr 27 2016 by Zachary.
-测试引用 
-
-
-小伙伴们你们在哪？请hands up🙌
-
-hexo n “我的博客” == hexo 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/27/newStart/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/27/SASS-常用语法总结/" rel="next" title="SASS 常用语法总结">
+                <i class="fa fa-chevron-left"></i> SASS 常用语法总结
+              </a>
+            
           </div>
-        
-      
-    </div>
-    <div>
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/31/CSS-浮动/"
+     data-title="CSS - 浮动"
+     data-content=""
+     data-url="http://zachary05.github.io/2016/07/31/CSS-浮动/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/31/CSS-浮动/"
+           data-title="CSS - 浮动" data-url="http://zachary05.github.io/2016/07/31/CSS-浮动/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -802,8 +535,17 @@ hexo n “我的博客” == hexo
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xthft.com1.z0.glb.clouddn.com/1.pic.jpg"
@@ -876,6 +618,17 @@ hexo n “我的博客” == hexo
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -980,6 +733,10 @@ hexo n “我的博客” == hexo
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
