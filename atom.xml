@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zachary05.github.io/"/>
-  <updated>2016-07-31T02:23:22.000Z</updated>
+  <updated>2016-07-31T14:35:27.000Z</updated>
   <id>http://zachary05.github.io/</id>
   
   <author>
@@ -16,9 +16,113 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MIME types 整理</title>
+    <link href="http://zachary05.github.io/2016/07/31/MIME-types-%E6%95%B4%E7%90%86/"/>
+    <id>http://zachary05.github.io/2016/07/31/MIME-types-整理/</id>
+    <published>2016-07-31T14:30:47.000Z</published>
+    <updated>2016-07-31T14:35:27.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;MIME-types&quot;&gt;&lt;a href=&quot;#MIME-types&quot; class=&quot;headerlink&quot; title=&quot;MIME types&quot;&gt;&lt;/a&gt;MIME types&lt;/h2&gt;&lt;p&gt;一直不太清楚MIME，遂查之，整理成文。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;MIME (Multipurpose Internet Mail Extensions)[多功能网际邮件扩充协议]是描述消息内容类型的因特网标准。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其原意是为了在发送电子邮件时附加多媒体数据，让邮件客户程序能根据文件的类型进行处理。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。&lt;/p&gt;
+&lt;p&gt;每个MIME类型一般以&lt;code&gt;Content-Type: [type]/[subtype]; parameter&lt;/code&gt;形式出现。&lt;/p&gt;
+&lt;p&gt;如果是某客户端自己定义的格式，即尚未被接受为正式数据类型的，一般只能以&lt;code&gt;application/x-&lt;/code&gt; 开头。&lt;/p&gt;
+&lt;p&gt;[type]为数据的大类别，[subtype]为小类别。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;type-形式&quot;&gt;&lt;a href=&quot;#type-形式&quot; class=&quot;headerlink&quot; title=&quot;[type]形式:&quot;&gt;&lt;/a&gt;[type]形式:&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Text：用于标准化地表示的文本信息，文本消息可以是多种字符集和或者多种格式的；&lt;/li&gt;
+&lt;li&gt;Multipart：用于连接消息体的多个部分构成一个消息，这些部分可以是不同类型的数据；&lt;/li&gt;
+&lt;li&gt;Application：用于传输应用程序数据或者二进制数据；&lt;/li&gt;
+&lt;li&gt;Message：用于包装一个E-mail消息；&lt;/li&gt;
+&lt;li&gt;Image：用于传输静态图片数据；&lt;/li&gt;
+&lt;li&gt;Audio：用于传输音频或者音声数据；&lt;/li&gt;
+&lt;li&gt;Video：用于传输动态影像数据，可以是与音频编辑在一起的视频数据格式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;常用-subtype-值&quot;&gt;&lt;a href=&quot;#常用-subtype-值&quot; class=&quot;headerlink&quot; title=&quot;常用[subtype]值:&quot;&gt;&lt;/a&gt;常用[subtype]值:&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;text/plain（纯文本）&lt;/li&gt;
+&lt;li&gt;text/html（HTML文档）&lt;/li&gt;
+&lt;li&gt;application/xhtml+xml（XHTML文档）&lt;/li&gt;
+&lt;li&gt;image/gif（GIF图像）&lt;/li&gt;
+&lt;li&gt;image/jpeg（JPEG图像）【PHP中为：image/pjpeg】&lt;/li&gt;
+&lt;li&gt;image/png（PNG图像）【PHP中为：image/x-png】&lt;/li&gt;
+&lt;li&gt;video/mpeg（MPEG动画）&lt;/li&gt;
+&lt;li&gt;application/octet-stream（任意的二进制数据）&lt;/li&gt;
+&lt;li&gt;application/pdf（PDF文档）&lt;/li&gt;
+&lt;li&gt;application/msword（Microsoft Word文件）&lt;/li&gt;
+&lt;li&gt;application/vnd.wap.xhtml+xml (wap1.0+)&lt;/li&gt;
+&lt;li&gt;application/xhtml+xml (wap2.0+)&lt;/li&gt;
+&lt;li&gt;message/rfc822（RFC 822形式）&lt;/li&gt;
+&lt;li&gt;multipart/alternative（HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示）&lt;/li&gt;
+&lt;li&gt;application/x-www-form-urlencoded（使用HTTP的POST方法提交的表单）&lt;/li&gt;
+&lt;li&gt;multipart/form-data（同上，但主要用于表单提交时伴随文件上传的场合）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;常见MIME类型：&quot;&gt;&lt;a href=&quot;#常见MIME类型：&quot; class=&quot;headerlink&quot; title=&quot;常见MIME类型：&quot;&gt;&lt;/a&gt;常见MIME类型：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;超文本标记语言文本 .html,.html text/html &lt;/li&gt;
+&lt;li&gt;普通文本 .txt text/plain &lt;/li&gt;
+&lt;li&gt;RTF文本 .rtf application/rtf &lt;/li&gt;
+&lt;li&gt;GIF图形 .gif image/gif &lt;/li&gt;
+&lt;li&gt;JPEG图形 .ipeg,.jpg image/jpeg &lt;/li&gt;
+&lt;li&gt;au声音文件 .au audio/basic &lt;/li&gt;
+&lt;li&gt;MIDI音乐文件 mid,.midi audio/midi,audio/x-midi &lt;/li&gt;
+&lt;li&gt;RealAudio音乐文件 .ra, .ram audio/x-pn-realaudio &lt;/li&gt;
+&lt;li&gt;MPEG文件 .mpg,.mpeg video/mpeg &lt;/li&gt;
+&lt;li&gt;AVI文件 .avi video/x-msvideo &lt;/li&gt;
+&lt;li&gt;GZIP文件 .gz application/x-gzip &lt;/li&gt;
+&lt;li&gt;TAR文件 .tar application/x-tar &lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;官方的 MIME 信息不是由个人指定的，是由 Internet Engineering Task Force (IETF) 在下面的文档中提供的：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;RFC-822 Standard for ARPA Internet text messages&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RFC-2045 MIME Part 1: Format of Internet Message Bodies&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RFC-2046 MIME Part 2: Media Types&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RFC-2047 MIME Part 3: Header Extensions for Non-ASCII Text&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RFC-2048 MIME Part 4: Registration Procedures&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RFC-2049 MIME Part 5: Conformance Criteria and Examples&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不同的应用程序支持不同的 MIME 类型。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;References:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/MIME&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%A4%9A%E7%94%A8%E9%80%94%E4%BA%92%E8%81%AF%E7%B6%B2%E9%83%B5%E4%BB%B6%E6%93%B4%E5%B1%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;多用途互联网邮件扩展&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.w3school.com.cn/media/media_mimeref.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mime 类型列表&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;MIME-types&quot;&gt;&lt;a href=&quot;#MIME-types&quot; class=&quot;headerlink&quot; title=&quot;MIME types&quot;&gt;&lt;/a&gt;MIME types&lt;/h2&gt;&lt;p&gt;一直不太清楚MIME，遂查之，整理成文。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockqu
+    
+    </summary>
+    
+    
+      <category term="MIME" scheme="http://zachary05.github.io/tags/MIME/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSS - 浮动</title>
-    <link href="http://zachary05.github.io/2016/07/31/CSS-%E6%B5%AE%E5%8A%A8/"/>
-    <id>http://zachary05.github.io/2016/07/31/CSS-浮动/</id>
+    <link href="http://zachary05.github.io/2016/07/31/CSS-%E6%B5%AE%E5%8A%A8%E9%97%AE%E9%A2%98/"/>
+    <id>http://zachary05.github.io/2016/07/31/CSS-浮动问题/</id>
     <published>2016-07-31T02:09:31.000Z</published>
     <updated>2016-07-31T02:23:22.000Z</updated>
     

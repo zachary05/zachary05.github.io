@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://zachary05.github.io/2016/07/31/CSS-%E6%B5%AE%E5%8A%A8/</loc>
+    <loc>http://zachary05.github.io/about/index.html</loc>
+    
+    <lastmod>2016-07-31T14:38:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zachary05.github.io/2016/07/31/MIME-types-%E6%95%B4%E7%90%86/</loc>
+    
+    <lastmod>2016-07-31T14:35:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zachary05.github.io/2016/07/31/CSS-%E6%B5%AE%E5%8A%A8%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2016-07-31T02:23:22.000Z</lastmod>
     
@@ -54,13 +68,6 @@
     <loc>http://zachary05.github.io/2016/07/19/Bower%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2016-07-19T02:16:18.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zachary05.github.io/about/index.html</loc>
-    
-    <lastmod>2016-07-18T15:46:37.000Z</lastmod>
     
   </url>
   
